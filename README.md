@@ -9,7 +9,7 @@ Describe the installation  process for the program.
  
 ## Usage
 [comment]: <> (TODO: Describe the usage of the program and different usecases)
-Describe how to use the program and different Testcases for the program
+Describe how to use the webpage and if there is a setup process 
 
 ## Contributing
 [comment]: <> (TODO: Describe how to contribute to the program)
