@@ -1,23 +1,28 @@
 const serverIP = 'http://localhost:3000'
+const websiteNamespace = '/webserver';
 
 
-var socket = io.connect(serverIP, {secure: false}); //This line declares a socket.io object to var "socket" and connects to the server
+const socket = io('http://localhost:3000/admin', {
+    reconnectionDelayMax: 10000,
+    //namespace: '/admin',
+});
+//This line declares a socket.io object to var "socket" and connects to the server
 // (change the IP-address and port to your own)
 //The "secure: false" tells if the connection will be encrypted or not. Since we will not encrypt our connections, this is false.
 
 //Socket.io has several functions. The .on function refers to what will happen when the client receive a call called 'connect' from the server
 //View it as calling a function remotley. The server tells the client it wants to call this function with no arguments.
-socket.on('connect',function() { //When you connect to the server (and it works) call this function
+socket.on('connect', function () { //When you connect to the server (and it works) call this function
     console.log('Client has connected to the server!'); //The client prints this message
 }); //The 'connect' function/identifier is the standard procedure. To make something more we have to make it ourselves
 
-socket.on('clientConnected',function(id, ip) { //This is our selfmade functions. Here we can have the server return arguments (data) that we need
+socket.on('clientConnected', function (id, ip) { //This is our selfmade functions. Here we can have the server return arguments (data) that we need
     console.log('Client recevied ID: ' + id); //In this case the server will tell us what our local ID is (auto assigned)
     console.log("Client IP: " + ip);//And it will tell us what our IP-address
 
 });
 
-socket.on('data', function(data) { //Received data from the server who is forwarding it to us from the ESP32
+socket.on('data', function (data) { //Received data from the server who is forwarding it to us from the ESP32
 
     console.log('Data was received: ' + data);
     console.log(Number(data));
@@ -67,7 +72,15 @@ function requestDataFromBoard(interval) {
     //socket.emit('requestDataFromBoard', interval); //Here we tell the server to call the function "requestDataFromBoard" with a argument called "intervall"
     //The intervall value is the period of time between each data transmit from the ESP32 to the server. Typical values can be everything form 100ms to 100s
     console.log("requestDataFromBoard was called with intervall: " + interval);
-    socket.emit
+    const dataToSend = JSON.stringify({
+        'timeInterval': "0",
+        'unitIds': "1",
+        'sensorIds': "1",
+    });
+
+    socket.emit('getData', dataToSend);
+
+
 } //Be careful to not set the interval value to low, you do not want to overflood your server with data/requests
 
 function stopDataFromBoard() { //Tells the server to stop all timers so that data is no longer sent from the ESP32 to the webpage
@@ -75,6 +88,17 @@ function stopDataFromBoard() { //Tells the server to stop all timers so that dat
     console.log("stopDataFromBoard was called");
     appendMessage("test");
 }
+
+socket.on('dataResponse', (message) => {
+    console.log('data received from server');
+    const parsedMessage = JSON.parse(message);
+    const timeString = 'Time:' + parsedMessage.time;
+    const unitIdString = 'Unit: ' + parsedMessage.unitId;
+    const sensorIdString = 'Sensor: ' + parsedMessage.sensorId;
+    const valueString = 'Temperature: ' + parsedMessage.temperature;
+
+    appendMessage(timeString + ' ' + unitIdString + ' ' + sensorIdString + ' ' + valueString);
+})
 
 const messageContainer = document.getElementById('data-container')
 const messageForm = document.getElementById('send-container')
