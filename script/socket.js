@@ -1,4 +1,7 @@
-var socket = io.connect('192.168.1.10:2520', {secure: false}); //This line declares a socket.io object to var "socket" and connects to the server
+const serverIP = 'http://localhost:3000'
+
+
+var socket = io.connect(serverIP, {secure: false}); //This line declares a socket.io object to var "socket" and connects to the server
 // (change the IP-address and port to your own)
 //The "secure: false" tells if the connection will be encrypted or not. Since we will not encrypt our connections, this is false.
 
@@ -61,12 +64,25 @@ function changeStopState(state) {
 //This means we dont have to use the delay() function or the millis() function in Arduino, we can just let Node and JavaScript fix the tracking of time for us
 //This is the function that will make the ESP32 transmit data to the server, and not the other way around
 function requestDataFromBoard(interval) {
-    socket.emit('requestDataFromBoard', interval); //Here we tell the server to call the function "requestDataFromBoard" with a argument called "intervall"
+    //socket.emit('requestDataFromBoard', interval); //Here we tell the server to call the function "requestDataFromBoard" with a argument called "intervall"
     //The intervall value is the period of time between each data transmit from the ESP32 to the server. Typical values can be everything form 100ms to 100s
     console.log("requestDataFromBoard was called with intervall: " + interval);
+    socket.emit
 } //Be careful to not set the interval value to low, you do not want to overflood your server with data/requests
 
 function stopDataFromBoard() { //Tells the server to stop all timers so that data is no longer sent from the ESP32 to the webpage
     socket.emit('stopDataFromBoard'); //Here we tell the server to call the function "stopDataFromBoard"
     console.log("stopDataFromBoard was called");
+    appendMessage("test");
+}
+
+const messageContainer = document.getElementById('data-container')
+const messageForm = document.getElementById('send-container')
+const messageInput = document.getElementById('message-input')
+
+function appendMessage(message) {
+    console.log('testtttt');
+    const messageElement = document.createElement('div');
+    messageElement.innerText = message;
+    messageContainer.append(messageElement);
 }
