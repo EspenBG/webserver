@@ -1,4 +1,4 @@
-const serverIP = 'http://localhost:3000'
+const serverIP = 'http://localhost:3000';
 const websiteNamespace = '/webserver';
 
 
@@ -14,6 +14,8 @@ const socket = io('http://localhost:3000/admin', {
 //View it as calling a function remotley. The server tells the client it wants to call this function with no arguments.
 socket.on('connect', function () { //When you connect to the server (and it works) call this function
     console.log('Client has connected to the server!'); //The client prints this message
+    console.log(socket.id);
+    console.log(socket.nsp);
 }); //The 'connect' function/identifier is the standard procedure. To make something more we have to make it ourselves
 
 socket.on('clientConnected', function (id, ip) { //This is our selfmade functions. Here we can have the server return arguments (data) that we need
@@ -75,7 +77,7 @@ function requestDataFromBoard(interval) {
     const dataToSend = JSON.stringify({
         'timeInterval': "0",
         'unitIds': "1",
-        'sensorIds': "1",
+        'sensorIds': "#####1",
     });
 
     socket.emit('getData', dataToSend);
@@ -92,10 +94,12 @@ function stopDataFromBoard() { //Tells the server to stop all timers so that dat
 socket.on('dataResponse', (message) => {
     console.log('data received from server');
     const parsedMessage = JSON.parse(message);
-    const timeString = 'Time:' + parsedMessage.time;
-    const unitIdString = 'Unit: ' + parsedMessage.unitId;
-    const sensorIdString = 'Sensor: ' + parsedMessage.sensorId;
-    const valueString = 'Temperature: ' + parsedMessage.temperature;
+    const Sensor1 = parsedMessage.SensorID['#####2'];
+    console.log(Sensor1[0].time);
+    const timeString = 'Time:' + Sensor1[0].time;
+    const unitIdString = 'Unit: ' + '1';
+    const sensorIdString = 'SensorID: ' + '#####2';
+    const valueString = 'Value: ' + Sensor1[0].value;
 
     appendMessage(timeString + ' ' + unitIdString + ' ' + sensorIdString + ' ' + valueString);
 })
