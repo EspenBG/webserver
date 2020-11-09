@@ -76,8 +76,8 @@ function requestDataFromBoard(interval) {
     console.log("requestDataFromBoard was called with intervall: " + interval);
     const dataToSend = JSON.stringify({
         'timeInterval': "0",
-        'unitIds': "1",
-        'sensorIds': "#####1",
+        'unitIDs': "1",
+        'sensorIDs': "#####1"
     });
 
     socket.emit('getData', dataToSend);
@@ -97,11 +97,11 @@ socket.on('dataResponse', (message) => {
     const Sensor1 = parsedMessage.SensorID['#####2'];
     console.log(Sensor1[0].time);
     const timeString = 'Time:' + Sensor1[0].time;
-    const unitIdString = 'Unit: ' + '1';
-    const sensorIdString = 'SensorID: ' + '#####2';
+    const unitIDString = 'Unit: ' + '1';
+    const sensorIDString = 'SensorID: ' + '#####2';
     const valueString = 'Value: ' + Sensor1[0].value;
 
-    appendMessage(timeString + ' ' + unitIdString + ' ' + sensorIdString + ' ' + valueString);
+    appendMessage(timeString + ' ' + unitIDString + ' ' + sensorIDString + ' ' + valueString);
 })
 
 const messageContainer = document.getElementById('data-container')
