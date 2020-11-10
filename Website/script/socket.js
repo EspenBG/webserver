@@ -2,7 +2,7 @@ const serverIP = 'http://localhost:3000';
 const websiteNamespace = '/webserver';
 
 
-const socket = io('http://localhost:3000/admin', {
+const socket = io('http://localhost:3000/webserver', {
     reconnectionDelayMax: 10000,
     //namespace: '/admin',
 });
@@ -75,9 +75,9 @@ function requestDataFromBoard(interval) {
     //The intervall value is the period of time between each data transmit from the ESP32 to the server. Typical values can be everything form 100ms to 100s
     console.log("requestDataFromBoard was called with intervall: " + interval);
     const dataToSend = JSON.stringify({
-        'timeInterval': "0",
-        'unitIDs': "1",
-        'sensorIDs': "#####1"
+        'startTime': "1604952805169",
+        'stopTime':  "1704669200206",
+        'sensorIDs': "#####2"
     });
 
     socket.emit('getData', dataToSend);

@@ -11,6 +11,11 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:wip" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -28,10 +33,8 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:wip" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/wip/test-project" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -39,8 +42,6 @@
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +155,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/wip/test-project" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -285,18 +286,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603555033113" />
-    <state x="552" y="281" key="Vcs.Push.Dialog.v2" timestamp="1603561885193">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1742" y="217" key="Vcs.Push.Dialog.v2" timestamp="1604939594805">
+      <screen x="1440" y="23" width="1102" height="719" />
     </state>
     <state x="-1368" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603371337789" />
     <state x="552" y="281" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561885193" />
-    <state x="583" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604937626337">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state x="1742" y="217" key="Vcs.Push.Dialog.v2/1440.23.1102.719/0.23.1440.812@1440.23.1102.719" timestamp="1604939594805" />
+    <state x="1886" y="323" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604939606341">
+      <screen x="1440" y="23" width="1102" height="719" />
     </state>
     <state x="-1143" y="484" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603964827610" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603385952742" />
     <state x="583" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.814@0.23.1440.814" timestamp="1604937626337" />
     <state x="319" y="-1279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604501347685" />
+    <state x="1886" y="323" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.23.1102.719/0.23.1440.812@1440.23.1102.719" timestamp="1604939606341" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1603554154777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
