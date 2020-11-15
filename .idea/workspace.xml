@@ -41,10 +41,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
