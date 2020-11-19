@@ -41,7 +41,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
@@ -90,7 +89,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -138,6 +137,7 @@
       <workItem from="1603985546399" duration="1323000" />
       <workItem from="1604938137493" duration="1021000" />
       <workItem from="1605361976546" duration="770000" />
+      <workItem from="1605704080423" duration="7893000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -151,7 +151,21 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1603561806870</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1. draft of webpage">
+      <created>1605443013328</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605443013328</updated>
+    </task>
+    <task id="LOCAL-00004" summary="small bug fixed">
+      <created>1605443085493</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605443085493</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +198,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed TODOs in README.md and added info on branches" />
     <MESSAGE value="Added a new field on the webpage for the data received from the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new field on the webpage for the data received from the server" />
+    <MESSAGE value="1. draft of webpage" />
+    <MESSAGE value="small bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="small bug fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1828" y="92" width="1736" height="976" key="DiffContextDialog" timestamp="1603966011380">
@@ -295,16 +311,17 @@
       <screen x="-1920" y="0" width="1920" height="1160" />
     </state>
     <state x="-1168" y="282" key="RollbackChangesDialog/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603965514471" />
-    <state x="346" y="87" key="SettingsEditor" timestamp="1605363333583">
+    <state x="346" y="87" key="SettingsEditor" timestamp="1605801438782">
       <screen x="0" y="25" width="1440" height="790" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603555033113" />
-    <state x="346" y="87" key="SettingsEditor/0.25.1440.790@0.25.1440.790" timestamp="1605363333583" />
-    <state x="552" y="281" key="Vcs.Push.Dialog.v2" timestamp="1603561885193">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="346" y="87" key="SettingsEditor/0.25.1440.790@0.25.1440.790" timestamp="1605801438782" />
+    <state x="414" y="239" key="Vcs.Push.Dialog.v2" timestamp="1605443090164">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
     <state x="-1368" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603371337789" />
     <state x="552" y="281" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561885193" />
+    <state x="414" y="239" key="Vcs.Push.Dialog.v2/0.25.1440.791@0.25.1440.791" timestamp="1605443090164" />
     <state x="583" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605363308206">
       <screen x="0" y="25" width="1440" height="790" />
     </state>
