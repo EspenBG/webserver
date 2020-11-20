@@ -41,6 +41,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
@@ -54,6 +55,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -104,8 +106,11 @@
       <recent name="C:\Users\Espen\WebstormProjects\webserver" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.index.js">
+  <component name="RunManager" selected="Node.js.mockup-script.js">
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="mockup-script.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="mockup-script.js" working-dir="$PROJECT_DIR$/Website/script">
       <method v="2" />
     </configuration>
     <configuration name="socket.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Website/script/socket.js" working-dir="$PROJECT_DIR$/Website/script">
@@ -113,6 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.mockup-script.js" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.socket.js" />
       </list>
@@ -311,10 +317,10 @@
       <screen x="-1920" y="0" width="1920" height="1160" />
     </state>
     <state x="-1168" y="282" key="RollbackChangesDialog/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603965514471" />
-    <state x="346" y="87" key="SettingsEditor" timestamp="1605801438782">
-      <screen x="0" y="25" width="1440" height="790" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1605866772764">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603555033113" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605866772764" />
     <state x="346" y="87" key="SettingsEditor/0.25.1440.790@0.25.1440.790" timestamp="1605801438782" />
     <state x="414" y="239" key="Vcs.Push.Dialog.v2" timestamp="1605443090164">
       <screen x="0" y="25" width="1440" height="791" />

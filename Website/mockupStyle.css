@@ -132,7 +132,7 @@ main {
 
 }
 .graph {
-    width: 100%;
+    /*width: 100%;*/
     /*height: 100%;*/
     display: flex;
     align-items: flex-start;
@@ -140,4 +140,25 @@ main {
     background-color: rgba(255, 255, 255, 1.0);
     border-left: 1px solid rgba(240, 240, 240, 1.0);
     border-bottom: 2px solid rgba(240, 240, 240, 1.0);
+}
+#log-type {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+.log-type p{
+    margin: 0;
+    padding: 2px 2px;
+}
+.log-type label {
+    margin: 2px;
+}
+.log-type input {
+    margin: 2px;
+
+}
+
+#time-picker {
+    display: inline-flex;
 }
