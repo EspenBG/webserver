@@ -2,13 +2,12 @@
   "name": "webserver",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Espen Godo",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
@@ -18,13 +17,5 @@
   "devDependencies": {
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/EspenBG/webserver.git"
-  },
-  "bugs": {
-    "url": "https://github.com/EspenBG/webserver/issues"
-  },
-  "homepage": "https://github.com/EspenBG/webserver#readme"
+  }
 }
