@@ -33,16 +33,18 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:wip" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:wip/web-design" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/wip/get-data-from-server" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/mockup-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,19 +189,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="wip/web-design" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -335,11 +325,11 @@
     <state x="552" y="281" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561885193" />
     <state x="414" y="239" key="Vcs.Push.Dialog.v2/0.25.1440.790@0.25.1440.790" timestamp="1605820383181" />
     <state x="414" y="239" key="Vcs.Push.Dialog.v2/0.25.1440.791@0.25.1440.791" timestamp="1605443090164" />
-    <state x="583" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605987075722">
-      <screen x="0" y="25" width="1440" height="791" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606144093417">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1143" y="484" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603964827610" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603385952742" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1606144093417" />
     <state x="583" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.814@0.23.1440.814" timestamp="1604937626337" />
     <state x="319" y="-1279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604501347685" />
     <state x="583" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.790@0.25.1440.790" timestamp="1605363308206" />
@@ -348,6 +338,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603554154777" />
+    <state x="788" y="292" key="refactoring.ChangeSignatureDialog" timestamp="1606147263793">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="788" y="292" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1920.0.1920.1160/1920.0.1920.1040@0.0.1920.1040" timestamp="1606147263793" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1605367451652">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
