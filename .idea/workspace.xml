@@ -178,7 +178,19 @@
       <option name="project" value="LOCAL" />
       <updated>1605820378515</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="The dropdown menu in the header now works and you can choose a sensor.">
+      <created>1606159133112</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1606159133112</updated>
+    </task>
+    <task id="LOCAL−00007" summary="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value">
+      <created>1606163485923</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1606163485923</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +214,9 @@
     <MESSAGE value="1. draft of webpage" />
     <MESSAGE value="small bug fixed" />
     <MESSAGE value="First draft of the webpage" />
-    <option name="LAST_COMMIT_MESSAGE" value="First draft of the webpage" />
+    <MESSAGE value="The dropdown menu in the header now works and you can choose a sensor." />
+    <MESSAGE value="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value" />
+    <option name="LAST_COMMIT_MESSAGE" value="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1828" y="92" width="1736" height="976" key="DiffContextDialog" timestamp="1603966011380">
