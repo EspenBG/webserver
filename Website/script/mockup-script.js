@@ -43,6 +43,7 @@ const socket = io('http://localhost:3000/webserver', {
 sensorOptions.addEventListener("change", changeSensor);
 
 
+
 /*********************************************************************
  * EVENT LISTENERS
  *********************************************************************/
@@ -117,37 +118,44 @@ function addSensorsToDropdown(dropdown, optionsToAdd, callback) {
 }
 
 /**
- *
+ * Function for changing the sensor
+ * This is used as the listening function for the dropdown menu
  */
 function changeSensor() {
+    // Get the new sensor ID from the dropdown menu
     let newSensor = sensorOptions.value;
     console.log("Changed sensor to: " + newSensor);
     // getSensorInfo(newSensor);
+    // Get the new sensor information. The callback is run when the sensor data is received
     socket.emit('sensorInfo', newSensor, setSensorValues);
-
-    // wait for new sensor settings
-    //while (sensorSettings[newSensor] === undefined) {}
-    console.log("new data");
 }
 
-
+/**
+ * Function to set new sensor info, on the summary part of the page
+ */
 function setSensorValues() {
-    // console.log("fkdngedgr");
+    // The sensorname is stored as the first key in the object
     let sensorName = Object.keys(sensorSettings)[0];
+    // Set the new sensor ID to the header
     sensorName.innerText = "SensorID: " + sensorName;
+
+    // If the sensor is measuring co2 change the function text and real value name
     if (sensorSettings[sensorName]['type'] === 'co2') {
         sensorType.innerText = 'CO2:'
         sensorFunction.innerText = 'Luftkvalitet';
 
     } else {
+        // Else set the real value to temperature and the function is ether heating or cooling
         sensorType.innerText = 'Temperatur:';
         if (sensorSettings[sensorName]['controlType'] === "reversed") {
+            // The function is heating if the controller is reversed
             sensorFunction.innerText = 'Varme';
         } else {
             sensorFunction.innerText = 'Kjøling';
         }
     }
+    // Display the setpoint for the new sensor
     sensorSetpoint.innerText = sensorSettings[sensorName]['setpoint'];
+    // Display the robotID for the new sensor
     robotID.innerText = sensorSettings[sensorName]['unit'];
-
 }

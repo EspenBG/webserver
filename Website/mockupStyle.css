@@ -141,7 +141,7 @@ main {
     border-left: 1px solid rgba(240, 240, 240, 1.0);
     border-bottom: 2px solid rgba(240, 240, 240, 1.0);
 }
-#log-type {
+#log-length {
     display: inline-flex;
     justify-content: center;
     align-items: center;
