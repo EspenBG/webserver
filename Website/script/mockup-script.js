@@ -9,6 +9,10 @@
  *********************************************************************/
 
 let sensorSettings = {};
+let dataLogSettings = {
+    after: 0,
+    before: 0
+};
 
 // TODO change class symbol to the unit of measurement for the sensor
 // TODO: Make function to get sensor data form robotserver
@@ -28,6 +32,7 @@ let sensorFunction = document.getElementById("sensor-function");
 let outputValue = document.getElementById("output-value");
 let robotID = document.getElementById("robot-id");
 
+let form = document.getElementById("log-length");
 
 /*********************************************************************
  * MAIN PROGRAM
@@ -42,7 +47,26 @@ const socket = io('http://localhost:3000/webserver', {
 // Monitor the dropdown menu and change the selected sensor when it is changed
 sensorOptions.addEventListener("change", changeSensor);
 
-
+form.addEventListener('change', function () {
+    // Store the number of hours to subtract from current time
+    let logPeriod = parseInt(document.forms["log-length"]["log-period"].value);
+    console.log(logPeriod);
+    let currentTime = Date.now();
+    if (logPeriod === 0){
+        // The time is specified by the other method
+        console.log("true");
+        // TODO add settings to display time selector
+    } else {
+        // One hour is 3 600 000 milliseconds
+        let oneHour = 3600000;
+        // After is set by the current time minus the log period
+        dataLogSettings["after"] = currentTime - (logPeriod * oneHour);
+        // Get all data form the after to now (0 = now, for the data request)
+        dataLogSettings["before"] = 0;
+        console.log(dataLogSettings);
+        // TODO add execution of getting new sensorData and displaying in graph
+    }
+});
 
 /*********************************************************************
  * EVENT LISTENERS

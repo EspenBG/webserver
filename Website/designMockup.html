@@ -13,7 +13,7 @@
         var dataArr1 = [5, 10, 20, 50]; /* The chart data for "Data 1", altering this array/list changes the graph data */
         var dataArr2 = [2, 100, 50, 130, 20, 10, 50, 420, 50, 10]; /* The chart data for "Data 2", altering this array/list changes the graph data */
     </script>
-<!--    <script src="script/mockup-script.js"></script>-->
+    <!--    <script src="script/mockup-script.js"></script>-->
 </head>
 <body>
 <h1> Kontroll plattform</h1>
@@ -32,7 +32,7 @@
 <main>
     <div class="main-content">
         <div class="menu">
-<!--                        <h2> Sensor ID</h2>-->
+            <!--                        <h2> Sensor ID</h2>-->
             <button>Sensor 1</button>
             <button>Sensor 2</button>
             <button>Sensor 3</button>
@@ -86,22 +86,21 @@
             <div class="graph-window">
 
 
-
                 <div class="graph">
                     <canvas id="myChart" width="400" height="400"></canvas>
                 </div>
-                <form class="log-type">
-                    <div id="log-length">
-                    <p>Show data from:</p>
-                    <input type="radio" id="12-hr" name="log-period" value="12hr" checked>
-                    <label for="12-hr">12 hours</label><br>
-                    <input type="radio" id="1day" name="log-period" value="1day">
-                    <label for="1day">1 day</label><br>
-                    <input type="radio" id="7days" name="log-period" value="7days">
-                    <label for="7days">7 days</label><br>
-                    <input type="radio" id="other" name="log-period" value="other">
-                    <label for="other">other</label>
-                    </div>
+                <form class="log-type" id="log-length">
+<!--                    <div id="log-type">-->
+                        <p>Show data from:</p>
+                        <input type="radio" id="12-hr" name="log-period" value="12" checked>
+                        <label for="12-hr">12 hours</label><br>
+                        <input type="radio" id="1day" name="log-period" value="24">
+                        <label for="1day">1 day</label><br>
+                        <input type="radio" id="7days" name="log-period" value="168">
+                        <label for="7days">7 days</label><br>
+                        <input type="radio" id="other" name="log-period" value="0">
+                        <label for="other">other</label>
+<!--                    </div>-->
                 </form>
                 <form id="time-picker">
                     <label for="from-time">Fra: </label>
@@ -109,10 +108,14 @@
                     <label for="to-time">Fra: </label>
                     <input type="time" id="to-time" name="username"><br>
                     <input type="button" value="Update">
-                    <input type="date" placeholder="dd/mm/yyyy" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" required title="Eight or more characters">
+                    <input type="date" placeholder="dd/mm/yyyy"
+                           pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)"
+                           required title="Eight or more characters">
                     <input type="submit">
                 </form>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos facere illum iure magni nam ratione, sunt voluptas. Assumenda atque consequatur doloribus, eos error illo illum recusandae! Facilis, fugit, quisquam?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos facere illum iure magni nam
+                    ratione, sunt voluptas. Assumenda atque consequatur doloribus, eos error illo illum recusandae!
+                    Facilis, fugit, quisquam?</p>
 
             </div>
         </div>

@@ -43,6 +43,7 @@
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/mockup-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +144,7 @@
       <workItem from="1604938137493" duration="1021000" />
       <workItem from="1605361976546" duration="770000" />
       <workItem from="1605704080423" duration="9052000" />
-      <workItem from="1606233612869" duration="2528000" />
+      <workItem from="1606233612869" duration="5939000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -196,7 +197,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1606164239861</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Added comments and definitions to the new functions">
+      <created>1606247369856</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1606247369856</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +214,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/wip/get-data-from-server" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -222,7 +241,8 @@
     <MESSAGE value="First draft of the webpage" />
     <MESSAGE value="The dropdown menu in the header now works and you can choose a sensor." />
     <MESSAGE value="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value" />
-    <option name="LAST_COMMIT_MESSAGE" value="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value" />
+    <MESSAGE value="Added comments and definitions to the new functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added comments and definitions to the new functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1828" y="92" width="1736" height="976" key="DiffContextDialog" timestamp="1603966011380">
