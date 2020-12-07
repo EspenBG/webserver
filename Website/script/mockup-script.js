@@ -31,6 +31,8 @@ let sensorSetpoint = document.getElementById("sensor-setpoint");
 let sensorFunction = document.getElementById("sensor-function");
 let outputValue = document.getElementById("output-value");
 let robotID = document.getElementById("robot-id");
+// let ctx = document.getElementById('myChart').getContext('2d'); //Defines the basic graphic element of the graph
+
 
 let form = document.getElementById("log-length");
 
@@ -52,7 +54,7 @@ form.addEventListener('change', function () {
     let logPeriod = parseInt(document.forms["log-length"]["log-period"].value);
     console.log(logPeriod);
     let currentTime = Date.now();
-    if (logPeriod === 0){
+    if (logPeriod === 0) {
         // The time is specified by the other method
         console.log("true");
         // TODO add settings to display time selector
@@ -65,7 +67,14 @@ form.addEventListener('change', function () {
         dataLogSettings["before"] = 0;
         console.log(dataLogSettings);
         // TODO add execution of getting new sensorData and displaying in graph
+
     }
+    const dataToSend = JSON.stringify({
+        'startTime': dataLogSettings["after"],
+        'stopTime': dataLogSettings["before"],
+        'sensorID': Object.keys(sensorSettings)[0]
+    });
+    socket.emit("getData", dataToSend);
 });
 
 /*********************************************************************
@@ -100,6 +109,15 @@ socket.on('sensorInfo', (sensorInfo, callback) => {
 });
 
 
+socket.on('dataResponse', (data) => {
+    //console.log(JSON.parse(data))
+    let sensorData = JSON.parse(data)['SensorID'][Object.keys(sensorSettings)[0]];
+    let chartData = [];
+    // myLineChart.data.labels.push('test');
+    // Show the new sensor data in the graph
+    updateGraph(myLineChart.data.datasets[0], sensorData, true);
+    myLineChart.update();
+})
 
 
 /**
@@ -183,3 +201,18 @@ function setSensorValues() {
     // Display the robotID for the new sensor
     robotID.innerText = sensorSettings[sensorName]['unit'];
 }
+
+function updateGraph(graphDataset, newData, removeLast) {
+    // Empty the array
+    if (removeLast) graphDataset.data = [];
+    newData.forEach((object) => {
+        // Renames all the data points and add to new array
+        graphDataset.data.push({
+            y: object.value,
+            t: object.time
+        });
+    })
+
+    // console.log(chartData);
+}
+
