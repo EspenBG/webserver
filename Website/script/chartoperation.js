@@ -16,28 +16,28 @@ var myLineChart = new Chart(ctx, { //Defines the graph
         // labels: ['01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '08:00', '09:00'], //Labels define the values of the x-axis (and can be altered at a later point/live)
         datasets: [ //Datasets refers to the different graphs and the data they contain
             {
-                label: 'Data 1', //Label of dataset/graph 1
+                label: 'Sensor', //Label of dataset/graph 1
                 yAxisID: 'A',
                 data: [], //The dataArray that actually stores the data
                 backgroundColor: [ //The background color of the graph (usually not in use)
                     'rgba(255, 99, 132, 0.2)'
                 ],
                 borderColor: [ //The border color of the graph (the color of the actual line)
-                    'rgba(255, 99, 12, 1)'
+                    'rgb(29,28,255)'
                 ],
                 borderWidth: 1, //The width of the graph line
                 fill: false,
                 lineTension: 0.1,
             },
             {
-                label: 'Data 2',
+                label: 'Utgang',
                 yAxisID: 'B',
                 data: [],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
                 ],
                 borderColor: [
-                    'rgb(29,28,255)'
+                    'rgba(255, 99, 12, 1)'
                 ],
                 borderWidth: 1,
                 fill: true,
@@ -62,7 +62,7 @@ var myLineChart = new Chart(ctx, { //Defines the graph
                 },
                 scaleLabel: {
                     display:     true,
-                    labelString: 'time'
+                    labelString: 'Tid'
                 },
                 distribution: 'linear'
             }],
@@ -71,14 +71,14 @@ var myLineChart = new Chart(ctx, { //Defines the graph
                 scaleLabel: {
 
                     display:     true,
-                    labelString: 'value'
+                    labelString: 'Verdi'
                 }
             },
                 {
                     id:'B',
                     scaleLabel: {
                         display:     true,
-                        labelString: 'pådrag'
+                        labelString: 'Utgang'
                     },
                     position: 'right',
                     ticks: {

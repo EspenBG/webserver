@@ -13,7 +13,13 @@ let dataLogSettings = {
     after: 0,
     before: 0
 };
-
+let sensorID;
+let newestSensorValue = {
+    SensorID: {},
+    ControlledItemID: {}
+};
+let valueSuffix;
+let logTypeIsOther;
 // TODO change class symbol to the unit of measurement for the sensor
 // TODO: Make function to get sensor data form robotserver
 // TODO set the real value, last value for sensor
@@ -32,6 +38,8 @@ let sensorFunction = document.getElementById("sensor-function");
 let outputValue = document.getElementById("output-value");
 let robotID = document.getElementById("robot-id");
 // let ctx = document.getElementById('myChart').getContext('2d'); //Defines the basic graphic element of the graph
+let sensorTimestamp = document.getElementById("sensor-value-time");
+let outputTimestamp = document.getElementById("output-value-time");
 
 
 let form = document.getElementById("log-length");
@@ -47,35 +55,10 @@ const socket = io('http://localhost:3000/webserver', {
 });
 
 // Monitor the dropdown menu and change the selected sensor when it is changed
-sensorOptions.addEventListener("change", changeSensor);
+sensorOptions.addEventListener('change', changeSensor);
 
-form.addEventListener('change', function () {
-    // Store the number of hours to subtract from current time
-    let logPeriod = parseInt(document.forms["log-length"]["log-period"].value);
-    console.log(logPeriod);
-    let currentTime = Date.now();
-    if (logPeriod === 0) {
-        // The time is specified by the other method
-        console.log("true");
-        // TODO add settings to display time selector
-    } else {
-        // One hour is 3 600 000 milliseconds
-        let oneHour = 3600000;
-        // After is set by the current time minus the log period
-        dataLogSettings["after"] = currentTime - (logPeriod * oneHour);
-        // Get all data form the after to now (0 = now, for the data request)
-        dataLogSettings["before"] = 0;
-        console.log(dataLogSettings);
-        // TODO add execution of getting new sensorData and displaying in graph
 
-    }
-    const dataToSend = JSON.stringify({
-        'startTime': dataLogSettings["after"],
-        'stopTime': dataLogSettings["before"],
-        'sensorID': Object.keys(sensorSettings)[0]
-    });
-    socket.emit("getData", dataToSend);
-});
+form.addEventListener('change', updateGraphData);
 
 /*********************************************************************
  * EVENT LISTENERS
@@ -103,7 +86,8 @@ socket.on('allSensors', (sensors) => {
 
 socket.on('sensorInfo', (sensorInfo, callback) => {
     let parsedSensorInfo = JSON.parse(sensorInfo);
-    console.log("Received sensor settings for sensor " + Object.keys(parsedSensorInfo)[0]);
+    sensorID = Object.keys(parsedSensorInfo)[0]
+    console.log("Received sensor settings for sensor " + sensorID);
     sensorSettings = parsedSensorInfo;
     if (callback) callback();
 });
@@ -111,14 +95,39 @@ socket.on('sensorInfo', (sensorInfo, callback) => {
 
 socket.on('dataResponse', (data) => {
     //console.log(JSON.parse(data))
-    let sensorData = JSON.parse(data)['SensorID'][Object.keys(sensorSettings)[0]];
-    let chartData = [];
-    // myLineChart.data.labels.push('test');
+    let dataResponse = JSON.parse(data);
+    console.log(dataResponse);
+    // The first key in the response is the datatype
+    let dataType = Object.keys(dataResponse)[0]
+    // console.log()
+    let sensorData = dataResponse[dataType][sensorID];
+    if (!logTypeIsOther) {
+        newestSensorValue[dataType] = sensorData[sensorData.length - 1]
+        showNewValue();
+    }
     // Show the new sensor data in the graph
-    updateGraph(myLineChart.data.datasets[0], sensorData, true);
+    if (dataType === 'ControlledItemID') {
+        updateGraph(myLineChart.data.datasets[1], sensorData, true);
+        console.log('Adding data for controlled item');
+        // Set last value to newest sensor value
+    } else {
+        updateGraph(myLineChart.data.datasets[0], sensorData, true);
+        // Set last value to newest sensor value
+
+    }
     myLineChart.update();
 })
 
+socket.on('newSensorValue', (sensorData) => {
+    console.log(sensorData);
+    let parsedData = JSON.parse(sensorData);
+    let dataType = Object.keys(parsedData)[0];
+    if (parsedData[dataType][sensorID] !== undefined) {
+        // console.log("dsjhkbfskd")
+        newestSensorValue[dataType] = parsedData[dataType][sensorID];
+        showNewValue();
+    }
+})
 
 /**
  * Function to get the sensor info for a single sensor, given the sensorID for the sensor
@@ -170,49 +179,158 @@ function changeSensor() {
     // getSensorInfo(newSensor);
     // Get the new sensor information. The callback is run when the sensor data is received
     socket.emit('sensorInfo', newSensor, setSensorValues);
+    // Empty last values in newest sensor values
+    newestSensorValue = {
+        SensorID: {},
+        ControlledItemID: {}
+    };
+    // document.getElementById('sensor-page').style.display = 'inline-flex';
+    document.forms["log-length"]["log-period"].value = 12;
+    updateGraph(myLineChart.data.datasets[0], {}, true);
+    updateGraph(myLineChart.data.datasets[1], {}, true);
+    myLineChart.update();
+    showNewValue()
 }
 
 /**
  * Function to set new sensor info, on the summary part of the page
  */
 function setSensorValues() {
-    // The sensorname is stored as the first key in the object
-    let sensorName = Object.keys(sensorSettings)[0];
     // Set the new sensor ID to the header
-    sensorName.innerText = "SensorID: " + sensorName;
+    sensorName.innerText = "SensorID: " + sensorID;
 
     // If the sensor is measuring co2 change the function text and real value name
-    if (sensorSettings[sensorName]['type'] === 'co2') {
+    if (sensorSettings[sensorID]['type'] === 'co2') {
         sensorType.innerText = 'CO2:'
         sensorFunction.innerText = 'Luftkvalitet';
+        valueSuffix = ' ppm'
 
     } else {
         // Else set the real value to temperature and the function is ether heating or cooling
         sensorType.innerText = 'Temperatur:';
-        if (sensorSettings[sensorName]['controlType'] === "reversed") {
+        if (sensorSettings[sensorID]['controlType'] === "reversed") {
             // The function is heating if the controller is reversed
             sensorFunction.innerText = 'Varme';
         } else {
             sensorFunction.innerText = 'Kjøling';
         }
+        valueSuffix = ' °C'
     }
     // Display the setpoint for the new sensor
-    sensorSetpoint.innerText = sensorSettings[sensorName]['setpoint'];
+    sensorSetpoint.innerText = sensorSettings[sensorID]['setpoint'] + valueSuffix;
     // Display the robotID for the new sensor
-    robotID.innerText = sensorSettings[sensorName]['unit'];
+    robotID.innerText = sensorSettings[sensorID]['unit'];
+    updateGraphData();
 }
 
 function updateGraph(graphDataset, newData, removeLast) {
     // Empty the array
     if (removeLast) graphDataset.data = [];
-    newData.forEach((object) => {
-        // Renames all the data points and add to new array
-        graphDataset.data.push({
-            y: object.value,
-            t: object.time
+    try {
+        newData.forEach((object) => {
+            // Renames all the data points and add to new array
+
+            graphDataset.data.push({
+                y: object.value,
+                t: object.time
+            });
+
         });
-    })
+    } catch (error) {
+        console.log("error");
+    }
+
 
     // console.log(chartData);
 }
 
+function updateGraphData() {
+    // Store the number of hours to subtract from current time
+    let logPeriod = parseInt(document.forms["log-length"]["log-period"].value);
+    // console.log(logPeriod);
+    let currentTime = Date.now();
+    if (logPeriod === 0) {
+        // The time is specified by the other method
+        // console.log("true");
+        logTypeIsOther = true;
+
+        // TODO add settings to display time selector
+    } else {
+        logTypeIsOther = false;
+        // One hour is 3 600 000 milliseconds
+        let oneHour = 3600000;
+        // After is set by the current time minus the log period
+        dataLogSettings["after"] = currentTime - (logPeriod * oneHour);
+        // Get all data form the after to now (0 = now, for the data request)
+        dataLogSettings["before"] = 0;
+        // console.log(dataLogSettings);
+        // TODO add execution of getting new sensorData and displaying in graph
+
+
+    }
+
+    let dataToSend = {
+        startTime: dataLogSettings["after"],
+        stopTime: dataLogSettings["before"],
+        sensorID: sensorID,
+        dataType: 'SensorID'
+    }
+    // Send data request for sensor data
+    socket.emit("getData", JSON.stringify(dataToSend));
+    // Send data request for the controlled item if there is one
+    if (sensorSettings[Object.keys(sensorSettings)[0]]['controlledItem'] === true) {
+        dataToSend.dataType = 'ControlledItemID';
+        socket.emit("getData", JSON.stringify(dataToSend));
+    }
+
+}
+
+function showNewValue() {
+    // console.log(Object.keys(newestSensorValue['SensorID']).length)
+    try {
+        if (Object.keys(newestSensorValue['SensorID']).length === 2) {
+            lastSensorValue.innerText = newestSensorValue['SensorID']['value'] + valueSuffix;
+            let time = new Date(newestSensorValue['SensorID']['time']);
+            // sensorTimestamp.innerText = newestSensorValue['SensorID']['time'];
+            sensorTimestamp.innerText = ( //Format the timestamp to: hh:mm:ss dd/mm/yyyy
+                String(time.getHours()) + ':' +
+                String(time.getMinutes()).padStart(2, '0') + ':' +
+                String(time.getSeconds()).padStart(2, '0') + ' ' +
+                String(time.getDate()) + '/' +
+                String(time.getMonth() + 1) + '/' +
+                String(time.getFullYear())
+            );
+        }
+    } catch (error) {
+        console.log('Error when displaying value');
+        lastSensorValue.innerText = "###";
+        sensorTimestamp.innerText = "###";
+    }
+    try {
+        if (Object.keys(newestSensorValue['ControlledItemID']).length === 2) {
+            if (newestSensorValue['ControlledItemID']['value']) {
+                outputValue.innerText = 'På';
+            } else {
+                outputValue.innerText = 'Av';
+            }
+            // TODO: move outside to a function
+            let time = new Date(newestSensorValue['ControlledItemID']['time']);
+            outputTimestamp.innerText = ( //Format the timestamp to: hh:mm:ss dd/mm/yyyy
+                String(time.getHours()) + ':' +
+                String(time.getMinutes()).padStart(2, '0') + ':' +
+                String(time.getSeconds()).padStart(2, '0') + ' ' +
+                String(time.getDate()) + '/' +
+                String(time.getMonth() + 1) + '/' +
+                String(time.getFullYear())
+            );
+        }
+    } catch (error) {
+        console.log('Error when displaying value');
+        outputValue.innerText = '###';
+        outputTimestamp.innerText = "###";
+    }
+}
+
+function setStylesForPage() {
+// Edit the display option for every child element of the sensor page
+}

@@ -9,10 +9,7 @@
     <link rel="stylesheet" href="mockupStyle.css">
     <script src="libraries/Chart.bundle.js"></script> <!--Load Chart.js library-->
     <script src="libraries/socket.io.js"></script> <!--Load Chart.js library-->
-    <script>
-        var dataArr1 = [5, 10, 20, 50]; /* The chart data for "Data 1", altering this array/list changes the graph data */
-        var dataArr2 = [2, 100, 50, 130, 20, 10, 50, 420, 50, 10]; /* The chart data for "Data 2", altering this array/list changes the graph data */
-    </script>
+
     <!--    <script src="script/mockup-script.js"></script>-->
 </head>
 <body>
@@ -22,64 +19,70 @@
     <a href="./index.html">Add Robot</a>
     <a href="./index.html">Add Sensor</a>
     <a href="./index.html">Side 3</a>
-    <select id="sensor-picker">
-        <option value="none">Sensor</option>
-    </select>
+
 
 </nav>
 
 
 <main>
-    <div class="main-content">
-        <div class="menu">
-            <!--                        <h2> Sensor ID</h2>-->
-            <button>Sensor 1</button>
-            <button>Sensor 2</button>
-            <button>Sensor 3</button>
-            <button>Sensor 4</button>
-            <button>Sensor 5</button>
-            <button>Sensor 6</button>
-            <button>Sensor 1</button>
-            <button>Sensor 2</button>
-            <button>Sensor 3</button>
-            <button>Sensor 4</button>
-            <button>Sensor 5</button>
-            <button>Sensor 6</button>
-            <button>Sensor 1</button>
-            <button>Sensor 2</button>
-            <button>Sensor 3</button>
-            <button>Sensor 4</button>
-            <button>Sensor 5</button>
-            <button>Sensor 6</button>
-            <button>Sensor 1</button>
-            <button>Sensor 2</button>
-            <button>Sensor 3</button>
-            <button>Sensor 4</button>
-            <button>Sensor 5</button>
-            <button>Sensor 6</button>
-        </div>
+    <div class="choose-sensor">
+        <p>Pick a sensor: </p>
+        <select id="sensor-picker">
+            <option value="none">Sensor</option>
+        </select>
+    </div>
+    <div class="main-content" id="sensor-page">
+        <!--        <div class="menu">-->
+        <!--            &lt;!&ndash;                        <h2> Sensor ID</h2>&ndash;&gt;-->
+        <!--            <button>Sensor 1</button>-->
+        <!--            <button>Sensor 2</button>-->
+        <!--            <button>Sensor 3</button>-->
+        <!--            <button>Sensor 4</button>-->
+        <!--            <button>Sensor 5</button>-->
+        <!--            <button>Sensor 6</button>-->
+        <!--            <button>Sensor 1</button>-->
+        <!--            <button>Sensor 2</button>-->
+        <!--            <button>Sensor 3</button>-->
+        <!--            <button>Sensor 4</button>-->
+        <!--            <button>Sensor 5</button>-->
+        <!--            <button>Sensor 6</button>-->
+        <!--            <button>Sensor 1</button>-->
+        <!--            <button>Sensor 2</button>-->
+        <!--            <button>Sensor 3</button>-->
+        <!--            <button>Sensor 4</button>-->
+        <!--            <button>Sensor 5</button>-->
+        <!--            <button>Sensor 6</button>-->
+        <!--            <button>Sensor 1</button>-->
+        <!--            <button>Sensor 2</button>-->
+        <!--            <button>Sensor 3</button>-->
+        <!--            <button>Sensor 4</button>-->
+        <!--            <button>Sensor 5</button>-->
+        <!--            <button>Sensor 6</button>-->
+        <!--        </div>-->
         <div class="main-page">
             <div class="main-info">
-                <h2 id="sensor-name">SensorID: #####1</h2>
+                <h2 id="sensor-name">SensorID: </h2>
                 <div class="info-line">
                     <div class="info-text" id="sensor-type">Temperatur:</div>
-                    <div class="info-box" id="last-sensor-value">20.3 deg</div>
+                    <div class="info-box" id="last-sensor-value">###</div>
+                    <div class="timestamp" id="sensor-value-time">###</div>
                 </div>
                 <div class="info-line">
                     <div class="info-text">Settpunkt:</div>
-                    <div class="info-box" id="sensor-setpoint"> 23.5 deg</div>
+                    <div class="info-box" id="sensor-setpoint">###</div>
                 </div>
                 <div class="info-line">
                     <div class="info-text">Funksjon:</div>
-                    <div class="info-box" id="sensor-function">Varme</div>
+                    <div class="info-box" id="sensor-function">###</div>
                 </div>
                 <div class="info-line">
                     <div class="info-text">Utgang:</div>
-                    <div class="info-box" id="output-value">På</div>
+                    <div class="info-box" id="output-value">###</div>
+                    <div class="timestamp" id="output-value-time">###</div>
                 </div>
                 <div class="info-line">
                     <div class="info-text">Robot ID:</div>
-                    <div class="info-box" id="robot-id"> 20.3 deg</div>
+                    <div class="info-box" id="robot-id">###</div>
                 </div>
 
             </div>
@@ -87,19 +90,19 @@
 
 
                 <div class="graph">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="myChart"></canvas>
                 </div>
                 <form class="log-type" id="log-length">
                     <!-- Form for selecting the log period, the value is log period in hours and 0 is reserved other -->
                     <p>Show data from:</p>
-                        <input type="radio" id="12-hr" name="log-period" value="12" checked>
-                        <label for="12-hr">12 hours</label><br>
-                        <input type="radio" id="1day" name="log-period" value="24">
-                        <label for="1day">1 day</label><br>
-                        <input type="radio" id="7days" name="log-period" value="168">
-                        <label for="7days">7 days</label><br>
-                        <input type="radio" id="other" name="log-period" value="0">
-                        <label for="other">other</label>
+                    <input type="radio" id="12-hr" name="log-period" value="12" checked>
+                    <label for="12-hr">12 hours</label><br>
+                    <input type="radio" id="1day" name="log-period" value="24">
+                    <label for="1day">1 day</label><br>
+                    <input type="radio" id="7days" name="log-period" value="168">
+                    <label for="7days">7 days</label><br>
+                    <input type="radio" id="other" name="log-period" value="0">
+                    <label for="other">other</label>
                 </form>
                 <form id="time-picker">
                     <!-- Form for specifying the log period if the log period is set to other -->
@@ -114,7 +117,7 @@
                     <!--The pattern is for recognizing and ensuring that the date is in the correct format -->
                     <input type="submit">
                 </form>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos facere illum iure magni nam
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos facere illum iure magni nam
                     ratione, sunt voluptas. Assumenda atque consequatur doloribus, eos error illo illum recusandae!
                     Facilis, fugit, quisquam?</p>
 

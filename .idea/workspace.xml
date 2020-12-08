@@ -42,13 +42,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Website/libraries/Chart.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Website/libraries/Chart.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Website/libraries/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/libraries/Chart.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/libraries/Chart.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/chartoperation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/chartoperation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/mockup-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
     </list>
@@ -153,7 +149,8 @@
       <workItem from="1605361976546" duration="770000" />
       <workItem from="1605704080423" duration="9052000" />
       <workItem from="1606233612869" duration="6469000" />
-      <workItem from="1607355780833" duration="11594000" />
+      <workItem from="1607355780833" duration="19679000" />
+      <workItem from="1607431636049" duration="11335000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -224,7 +221,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1606251187305</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="The webpage can now show sensor data form the server.">
+      <created>1607374480179</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1607374480179</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +267,7 @@
     <MESSAGE value="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value" />
     <MESSAGE value="Added comments and definitions to the new functions" />
     <MESSAGE value="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server" />
+    <MESSAGE value="The webpage can now show sensor data form the server." />
+    <option name="LAST_COMMIT_MESSAGE" value="The webpage can now show sensor data form the server." />
   </component>
 </project>
