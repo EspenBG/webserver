@@ -42,10 +42,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/mockup-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +60,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -149,7 +153,7 @@
       <workItem from="1605704080423" duration="9052000" />
       <workItem from="1606233612869" duration="6469000" />
       <workItem from="1607355780833" duration="19679000" />
-      <workItem from="1607431636049" duration="18409000" />
+      <workItem from="1607431636049" duration="23413000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -232,7 +236,19 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1607443336456</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="The other time selector now works as intended">
+      <created>1607453610439</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1607453610439</updated>
+    </task>
+    <task id="LOCAL−00015" summary="Cleaned up in the css file">
+      <created>1607453702467</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1607453702467</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +290,8 @@
     <MESSAGE value="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server" />
     <MESSAGE value="The webpage can now show sensor data form the server." />
     <MESSAGE value="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update" />
-    <option name="LAST_COMMIT_MESSAGE" value="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update" />
+    <MESSAGE value="The other time selector now works as intended" />
+    <MESSAGE value="Cleaned up in the css file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up in the css file" />
   </component>
 </project>
