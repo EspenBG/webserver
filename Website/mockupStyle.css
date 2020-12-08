@@ -56,26 +56,6 @@ main {
     display: inline-flex;
 }
 
-.menu {
-    max-width: 200px;
-    min-width: 75px;
-    width: 30%;
-    height: 650px;
-    overflow: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-    grid-auto-rows: 50px;
-    background: lightgrey;
-    gap: 4px;
-    padding: 0 8px;
-    box-sizing: border-box;
-    font-family: Arial;
-    font-size: large;
-    text-align: center;
-}
-
-
-
 .main-page {
     display: grid;
     background: dodgerblue;
