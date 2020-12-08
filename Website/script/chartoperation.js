@@ -50,7 +50,7 @@ var myLineChart = new Chart(ctx, { //Defines the graph
         // responsive: true,
         title:      {
             display: true,
-            text:    "Chart.js Time Scale"
+            text:    "Sensor data"
         },
 
         scales:     {

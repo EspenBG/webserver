@@ -192,5 +192,5 @@ main {
 }
 
 #time-picker {
-    display: inline-flex;
+    display: none;
 }

@@ -45,7 +45,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/chartoperation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/chartoperation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/mockup-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +149,7 @@
       <workItem from="1605704080423" duration="9052000" />
       <workItem from="1606233612869" duration="6469000" />
       <workItem from="1607355780833" duration="19679000" />
-      <workItem from="1607431636049" duration="11335000" />
+      <workItem from="1607431636049" duration="18409000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -227,7 +226,13 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1607374480179</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update">
+      <created>1607443336456</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1607443336456</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +273,7 @@
     <MESSAGE value="Added comments and definitions to the new functions" />
     <MESSAGE value="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server" />
     <MESSAGE value="The webpage can now show sensor data form the server." />
-    <option name="LAST_COMMIT_MESSAGE" value="The webpage can now show sensor data form the server." />
+    <MESSAGE value="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update" />
+    <option name="LAST_COMMIT_MESSAGE" value="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update" />
   </component>
 </project>

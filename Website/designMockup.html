@@ -107,15 +107,13 @@
                 <form id="time-picker">
                     <!-- Form for specifying the log period if the log period is set to other -->
                     <label for="from-time">Fra: </label>
-                    <input type="date" id="from-time" name="username"><br>
-                    <label for="to-time">Fra: </label>
-                    <input type="time" id="to-time" name="username"><br>
-                    <input type="button" value="Update">
-                    <input type="date" placeholder="dd/mm/yyyy"
-                           pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)"
-                           required title="Eight or more characters">
+                    <input type="time" id="from-time" name="time-from">
+                    <input type="date" placeholder="yyyy-mm-dd" name="date-from"><br>
+                    <label for="to-time">Til:  </label>
+                    <input type="time" id="to-time" name="time-to" >
+                    <input type="date" placeholder="yyyy-mm-dd" name="date-to">
                     <!--The pattern is for recognizing and ensuring that the date is in the correct format -->
-                    <input type="submit">
+                    <input type="button" value="Oppdater" id="update-time-range">
                 </form>
                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos facere illum iure magni nam
                     ratione, sunt voluptas. Assumenda atque consequatur doloribus, eos error illo illum recusandae!

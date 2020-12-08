@@ -40,7 +40,7 @@ let robotID = document.getElementById("robot-id");
 // let ctx = document.getElementById('myChart').getContext('2d'); //Defines the basic graphic element of the graph
 let sensorTimestamp = document.getElementById("sensor-value-time");
 let outputTimestamp = document.getElementById("output-value-time");
-
+let updateTimeRange = document.getElementById('update-time-range');
 
 let form = document.getElementById("log-length");
 
@@ -56,7 +56,7 @@ const socket = io('http://localhost:3000/webserver', {
 
 // Monitor the dropdown menu and change the selected sensor when it is changed
 sensorOptions.addEventListener('change', changeSensor);
-
+updateTimeRange.addEventListener('click', userSpecifiedTime);
 
 form.addEventListener('change', updateGraphData);
 
@@ -253,10 +253,12 @@ function updateGraphData() {
         // The time is specified by the other method
         // console.log("true");
         logTypeIsOther = true;
+        document.getElementById('time-picker').style.display = 'flex';
 
         // TODO add settings to display time selector
     } else {
         logTypeIsOther = false;
+        document.getElementById('time-picker').style.display = 'none';
         // One hour is 3 600 000 milliseconds
         let oneHour = 3600000;
         // After is set by the current time minus the log period
@@ -329,6 +331,46 @@ function showNewValue() {
         outputValue.innerText = '###';
         outputTimestamp.innerText = "###";
     }
+}
+
+function userSpecifiedTime(){
+    let regexTimeFormat = new RegExp('^([0-1][0-9]|[2][0-3]):([0-5][0-9])$');
+    let regexDateFormat = new RegExp('^(19|20)\\d\\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$')
+
+    let fromTime = document.forms["time-picker"]["time-from"].value;
+    let fromDate = document.forms["time-picker"]["date-from"].value;
+    let toTime = document.forms["time-picker"]["time-to"].value;
+    let toDate = document.forms["time-picker"]["date-to"].value;
+
+    if (!regexTimeFormat.test(fromTime) || !regexTimeFormat.test(toTime)){
+        alert('Bruk riktig format for tid: HH:MM');
+    } else if (!regexDateFormat.test(fromDate) || !regexDateFormat.test(toDate)){
+        alert('Bruk riktig format for dato: yyyy-mm-dd');
+    } else {
+        let startTime = new Date(fromDate +'T' + fromTime)
+        let stopTime = new Date(toDate +'T' + toTime)
+        if (startTime > stopTime){
+            alert("Fra tiden må være før til tiden")
+        } else {
+            let dataToSend = {
+                startTime: startTime.getTime(),
+                stopTime: stopTime.getTime(),
+                sensorID: sensorID,
+                dataType: 'SensorID'
+            }
+            console.log(dataToSend)
+            socket.emit("getData", JSON.stringify(dataToSend));
+            if (sensorSettings[Object.keys(sensorSettings)[0]]['controlledItem'] === true) {
+                dataToSend.dataType = 'ControlledItemID';
+                socket.emit("getData", JSON.stringify(dataToSend));
+            }
+        }
+    }
+
+    console.log(regexDateFormat.test(fromDate))
+    console.log(regexTimeFormat.test(toTime))
+    console.log(toDate)
+    console.log(regexDateFormat.test(toDate))
 }
 
 function setStylesForPage() {
