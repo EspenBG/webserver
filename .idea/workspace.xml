@@ -42,13 +42,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mockupStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,8 @@
       <workItem from="1605704080423" duration="9052000" />
       <workItem from="1606233612869" duration="6469000" />
       <workItem from="1607355780833" duration="19679000" />
-      <workItem from="1607431636049" duration="23413000" />
+      <workItem from="1607431636049" duration="25379000" />
+      <workItem from="1607503913015" duration="16421000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -248,7 +245,13 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1607453702467</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="Basic layout of page for changing of sensor settings">
+      <created>1607458396286</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1607458396286</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +295,7 @@
     <MESSAGE value="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update" />
     <MESSAGE value="The other time selector now works as intended" />
     <MESSAGE value="Cleaned up in the css file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up in the css file" />
+    <MESSAGE value="Basic layout of page for changing of sensor settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic layout of page for changing of sensor settings" />
   </component>
 </project>
