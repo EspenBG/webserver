@@ -1,109 +1,103 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>WebSocket Test</title>-->
-<!--    <script src="index.js"> </script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h2>WebSocket Test</h2>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="libraries/Chart.bundle.js"></script> <!--Load Chart.js library-->
+    <script src="libraries/socket.io.js"></script> <!--Load Chart.js library-->
 
-<!--<div id="output"></div>-->
-<!--</body>-->
-<!--</html>-->
-<!DOCTYPE html> <!--Defines the HTML document-->
-<html lang="no"> <!--Sets the language for the webpage-->
-<head> <!--Defined the head element, which is to say the top of the webpage. Sometimes menus are placed here-->
-    <meta charset="UTF-8"> <!--Sets the encoding of the webpage-->
-    <title>Datakom || Kontrollpanel</title> <!--Sets the title of the webpage-->
-    <link rel="stylesheet" href="style.css"> <!--Imports the stylesheet of the webpage. It gives element style-->
-    <script src="libraries/socket.io.js"></script><!--Load Socket.io library-->
-    <script src="libraries/Chart.min.js"></script> <!--Load Chart.js library-->
-    <script>
-        var dataArr1 = [5, 10, 20, 50]; /* The chart data for "Data 1", altering this array/list changes the graph data */
-        var dataArr2 = [2, 100, 50, 130, 20, 10, 50, 420, 50, 10]; /* The chart data for "Data 2", altering this array/list changes the graph data */
-    </script>
-</head> <!-- the "/" indicates that the element is closed/stopped (you are done defining it)-->
-<body> <!--Defines the body element. This is traditionally where the main content is placed. Its the "middle" of the webpage-->
+    <!--    <script src="script/script.js"></script>-->
+</head>
+<body>
+<h1> Kontroll plattform</h1>
+<nav>
+    <a href="./index.html">Hovedside</a>
+    <a href="./changeRobot.html">Endre Robot</a>
+    <a href="./changeSensor.html">Endre Sensor</a>
+</nav>
 
-<div id="main-content"> <!--The main container of the webpage/the main HTML "tag"-->
 
-    <div id="control-content"> <!--Just another HTML tag, this one defines the control panel container-->
-
-        <div class="control-module" id="control-module-1"> <!--This defines the first box with the keyboard in it (upper left)-->
-
-            <div class="key-container dragElement dragBox"> <!--The "dragElement" and "dragBox" makes the element "dragable"
-                  To define the element that can be draged you use the "dragElement" property here, to define what element that can be used
-                  to actually drag the object (the element you click on to begin dragging) you use the "dragBox" property here.
-                  -->
-                <!-- Content of first box-->
-                <div class="key-btn-top"> <!--Keyboard buttons on the top are placed in here-->
-                    <div class="key-btn" id="w">W</div> <!--W key-->
+<main>
+    <div class="choose-sensor">
+        <p>Velg en sensor: </p>
+        <select id="sensor-picker">
+            <option value="none">Sensor</option>
+        </select>
+    </div>
+    <div class="main-content" id="sensor-page">
+        <div class="main-page">
+            <div class="main-info">
+                <h2 id="sensor-name">SensorID: </h2>
+                <div class="info-line">
+                    <div class="info-text" id="sensor-type">Temperatur:</div>
+                    <div class="info-box" id="last-sensor-value">###</div>
+                    <div class="timestamp" id="sensor-value-time">###</div>
                 </div>
-                <div class="key-btn-btm"> <!--Keyboard buttons on the bottom are placed here-->
-                    <div class="key-btn" id="a">A</div> <!--A key-->
-                    <div class="key-btn" id="s">S</div> <!--S key-->
-                    <div class="key-btn" id="d">D</div> <!--D key-->
+                <div class="info-line">
+                    <div class="info-text">Settpunkt:</div>
+                    <div class="info-box" id="sensor-setpoint">###</div>
                 </div>
+                <div class="info-line">
+                    <div class="info-text">Funksjon:</div>
+                    <div class="info-box" id="sensor-function">###</div>
+                </div>
+                <div class="info-line">
+                    <div class="info-text">Utgang:</div>
+                    <div class="info-box" id="output-value">###</div>
+                    <div class="timestamp" id="output-value-time">###</div>
+                </div>
+                <div class="info-line">
+                    <div class="info-text">Robot ID:</div>
+                    <div class="info-box" id="robot-id">###</div>
+                </div>
+
             </div>
+            <div class="graph-window">
 
-        </div>
 
-        <div class="control-module" id="control-module-2"> <!--This defines the second box with the buttons in it (upper right)-->
+                <div class="graph">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <form class="log-type" id="log-length">
+                    <!-- Form for selecting the log period, the value is log period in hours and 0 is reserved other -->
+                    <p>Show data from:</p>
+                    <input type="radio" id="12-hr" name="log-period" value="12" checked>
+                    <label for="12-hr">12 hours</label><br>
+                    <input type="radio" id="1day" name="log-period" value="24">
+                    <label for="1day">1 day</label><br>
+                    <input type="radio" id="7days" name="log-period" value="168">
+                    <label for="7days">7 days</label><br>
+                    <input type="radio" id="other" name="log-period" value="0">
+                    <label for="other">other</label>
+                </form>
+                <form id="time-picker">
+                    <!-- Form for specifying the log period if the log period is set to other -->
+                    <label for="from-time">Fra: </label>
+                    <input type="time" id="from-time" name="time-from">
+                    <input type="date" placeholder="yyyy-mm-dd" name="date-from"><br>
+                    <label for="to-time">Til:  </label>
+                    <input type="time" id="to-time" name="time-to" >
+                    <input type="date" placeholder="yyyy-mm-dd" name="date-to">
+                    <!--The pattern is for recognizing and ensuring that the date is in the correct format -->
+                    <input type="button" value="Oppdater" id="update-time-range">
+                </form>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos facere illum iure magni nam
+                    ratione, sunt voluptas. Assumenda atque consequatur doloribus, eos error illo illum recusandae!
+                    Facilis, fugit, quisquam?</p>
 
-            <!-- Content of second box-->
-            <div class="btn-container dragElement"> <!--Here the dragElement is the entire box-->
-                <div class="btn-title-con dragBox"> <!--But one can only start to drag it if one clicks on the top-box where the title is -->
-                    <h2 class="btn-title">GET DATA BUTTONS</h2> <!--Title in the title-box-->
-                </div>
-                <div class="btn-box"> <!--Button container (left side of the container (split in middle) with a white background)-->
-                    <div class="btn" onclick="requestDataFromBoard(1000)">GET DATA</div>  <!--The actual button with a green background. When you click this a functions is called-->
-                    <!--requestDataFromBoard function starts data transfer from the ESP32 to the webpage-->
-                </div>
-                <div class="btn-box"><!--Button container (right side of the container (split in middle) with a white background)-->
-                    <div class="btn" onclick="stopDataFromBoard()" style="background-color: #E23636">STOP DATA</div> <!--The actual button with a red background. When you click this a functions is called-->
-                    <!--stopDataFromBoard function stops data transfer from the ESP32 to the webpage-->
-                </div>
             </div>
-
         </div>
-
-        <div class="control-module" id="control-module-3"> <!--This defines the third box with the graph in it (lower left)-->
-
-            <!-- Content of third box-->
-            <div class="chart-container dragElement dragBox"> <!--Define the chart container element (box where the chart is placed)-->
-                <canvas id="myChart" width="400" height="400"></canvas> <!--The actual chart element. Notice, this uses an id so copying it wont give you more charts. Something else has to be done-->
-            </div>
-
-        </div>
-
-        <div class="control-module" id="control-module-4"> <!--This defines the fourth box with nothing currently in it (lower right)-->
-
-            <!--This box is left to your imagination. Put what you want here or you can redesign the entire page an ditch this-->
-
-            <!--Make a label thing here-->
-            <div id="data-container"></div>
-            <form id="send-container">
-                <input type="text" id="message-input">
-                <button type="submit" id="send-button">Send</button>
-            </form>
-
-
-        </div>
-
     </div>
 
-</div>
-
-
-<!--Script imports-->
-<!--This import is like the library imports in the head(top) element. It is placed here because certain HTML elements need to be defined before it can work-->
-<script src="libraries/drag-drop.js"></script> <!--This library gives the different boxes the ability to be dragged. If you want to remove it be sure to remove the drag elements defined earlier-->
-
-<!--These scripts you can alter. They provide functionality/functions and are not libraries. View their purpose as splitting up your Arduino code in to different files for organization-->
-<script src="script/chartoperation.js"></script> <!--This allow yo to change how the graph works, how many graphs, colors, titles etc.-->
-<script src="script/socket.js"></script> <!--This allows you to change the property of Socket.io (the WebSockets) ALL SOCKET.IO FUNCTIONS ARE ALSO PLACED HERE!-->
-<script src="script/script.js"></script> <!--This is the script for general webpage functionality. How will the keyboard work and more. Here you can add new things if you wish-->
+</main>
+<script src="script/chartoperation.js"></script>
+<script src="script/script.js"></script>
+<!--This allow yo to change how the graph works, how many graphs, colors, titles etc.-->
 
 </body>
 </html>

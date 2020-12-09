@@ -44,8 +44,12 @@ main {
     /*flex-direction: row;*/
     box-sizing:border-box;
     height: 100%;
+    margin: 0;
 }
-
+.main-page {
+display: grid;
+background: dodgerblue;
+}
 .main-content {
     width: 100%;
     height: 100%;

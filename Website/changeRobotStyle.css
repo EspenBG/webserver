@@ -1,7 +1,7 @@
 .choose-robot{
     display: flex;
-    margin: 1px;
-    padding: 1px;
+    /*margin: 1px;*/
+    /*padding: 1px;*/
     background-color: #00509e;
 }
 .choose-robot p {
