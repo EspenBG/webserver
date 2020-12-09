@@ -28,7 +28,7 @@
         <select id="sensor-picker">
             <option value="" disabled selected>Sensor</option>
         </select>
-        <input type="button" value="legg til">
+        <input type="button" value="legg til" id="add-sensor">
     </div>
     <div class="main-content" id="sensor-page">
         <div class="main-info">
@@ -53,7 +53,6 @@
             <div class="info-line" id="hide-setpoint">
                 <p class="info-text">Settpunkt:</p>
                 <input class="info-box" id="sensor-setpoint" placeholder="###">
-                <p class="error" id="setpoint-error"></p>
             </div>
             <div class="info-line">
                 <div class="info-text">Robot ID:</div>
@@ -64,6 +63,7 @@
             <div class="info-line">
             <button type="button" id="update-sensor-settings">Lagre nye innstillinger</button>
             </div>
+            <p id="error"></p>
         </div>
     </div>
 </main>

@@ -33,7 +33,8 @@ let sensorFunction = document.getElementById("sensor-function");
 let robotID = document.getElementById("robot-id");
 let updateSetting = document.getElementById('update-sensor-settings');
 let hideSetpoint = document.getElementById('hide-setpoint');
-let setpointError = document.getElementById('setpoint-error');
+let errorMessage = document.getElementById('error');
+let addSensor = document.getElementById('add-sensor')
 // TODO: if the unit is changed, ask if the unit config should be updated as well...
 // TODO: when sensors are added to a unit, automatically add sensor as a measurement...
 // TODO: If a sensor is deleted add to a deleted DB and then remove after a confirmation
@@ -57,6 +58,7 @@ updateSetting.addEventListener('click', sendNewSensorSettings);
 sensorType.addEventListener('change', setTypeOptions)
 // sensorName.addEventListener('change', setSensorTypeOptions)
 sensorFunction.addEventListener('change', checkForSetpoint)
+addSensor.addEventListener('click', setNewSensorParameters)
 /*********************************************************************
  * EVENT LISTENERS
  *********************************************************************/
@@ -141,17 +143,20 @@ function sendNewSensorSettings() {
     if (regexSetpoint.test(settings['setpoint'])) {
             setpointOK = true;
             console.log('setpoint ok')
-        setpointError.innerText = '';
+        errorMessage.innerText = '';
 
-    } else {
-        setpointError.innerText = 'Bruk riktig formatering for settpunkt!'
     }
 
     if (sensorIdOK && controlTypeOK && sensorTypeOK && robotIdOK && setpointOK && controlledItemOK) {
+        errorMessage.innerText ="";
+        if (confirm("Bekreft at du vil sende innstillingene?")){
         let settingsToSend = {}
         settingsToSend[sensorID] = settings
         console.log(settingsToSend);
         socket.emit('newSensorSettings', JSON.stringify(settingsToSend));
+    }
+    } else {
+        errorMessage.innerText = "Kan ikke lagre disse innstillingene!"
     }
 }
 
@@ -318,4 +323,9 @@ function getNewSensorSettings(){
         controlledItem: output,
         setpoint: setpoint,
     }
+}
+
+function setNewSensorParameters(){
+    sensorName.disabled = false;
+    sensorName.addEventListener("change", function(){sensorID = sensorName.value});
 }

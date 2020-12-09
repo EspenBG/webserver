@@ -46,14 +46,10 @@
       <change beforePath="$PROJECT_DIR$/Website/changeRobot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobot.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeRobotStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobotStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeSensorStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/mockupStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/mockup-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/socket.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +155,7 @@
       <workItem from="1606233612869" duration="6469000" />
       <workItem from="1607355780833" duration="19679000" />
       <workItem from="1607431636049" duration="25379000" />
-      <workItem from="1607503913015" duration="30726000" />
+      <workItem from="1607503913015" duration="33537000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -272,7 +268,13 @@
       <option name="presentableId" value="LOCAL−00018" />
       <updated>1607544616131</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL−00019" summary="Fixed som styling for the webpages, and cleaned up some unused files.">
+      <created>1607545724600</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1607545724600</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +321,7 @@
     <MESSAGE value="Basic layout of page for changing of sensor settings" />
     <MESSAGE value="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config" />
     <MESSAGE value="The change robot page is now functional&#10;- It is not possible to add a new unit yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="The change robot page is now functional&#10;- It is not possible to add a new unit yet" />
+    <MESSAGE value="Fixed som styling for the webpages, and cleaned up some unused files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed som styling for the webpages, and cleaned up some unused files." />
   </component>
 </project>

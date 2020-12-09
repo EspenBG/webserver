@@ -33,6 +33,8 @@ let sensorPicker = document.getElementById("sensor-picker");
 let robotOptions = document.getElementById("robot-picker");
 let updateSetting = document.getElementById('update-robot-settings');
 let robotName = document.getElementById('robot-id');
+let addRobot = document.getElementById('add-robot');
+let errorMessage = document.getElementById('error');
 // TODO: if the unit is changed, ask if the unit config should be updated as well...
 // TODO: when sensors are added to a unit, automatically add sensor as a measurement...
 // TODO: If a sensor is deleted add to a deleted DB and then remove after a confirmation
@@ -53,6 +55,7 @@ const socket = io('http://localhost:3000/webserver', {
 robotOptions.addEventListener('change', changeRobot);
 // updateTimeRange.addEventListener('click', userSpecifiedTime);
 updateSetting.addEventListener('click', sendNewRobotSettings);
+addRobot.addEventListener('click', setNewRobotParameters)
 // sensorType.addEventListener('change', setTypeOptions)
 // sensorName.addEventListener('change', setSensorTypeOptions)
 // sensorFunction.addEventListener('change', checkForSetpoint)
@@ -169,18 +172,22 @@ function setRobotValues() {
     addSensors();
 }
 
+function removePreviousLines() {
+    sensorSelectors = [];
+    // Remove all the previous sensors
+    let line = document.getElementsByClassName('info-line');
+    while (line.length > 0) {
+        line[0].parentNode.removeChild(line[0])
+    }
+}
+
 function addSensors(){
     let sensorsConnected = robotSettings[robotID];
 
     sensorsConnected.push(none);
+    removePreviousLines();
 
-    // Remove all the previous sensors
-    let line = document.getElementsByClassName('info-line');
-    while (line.length > 0){
-        line[0].parentNode.removeChild(line[0])
-    }
-
-    sensorsConnected.forEach((sensor, index) => {
+    sensorsConnected.forEach((sensor) => {
         addSensorToLine(sensor);
     })
 
@@ -207,16 +214,18 @@ function sendNewRobotSettings(){
         if (!(sensorID === none)) {
             sensorIDs.push(sensorID);
         }
-
     })
-    if (checkSensorIds(sensorIDs)){
+    if (checkIDs(sensorIDs)){
         console.log(sensorIDs)
         let settingToSend = {}
         settingToSend[robotID] = sensorIDs;
-        if (confirm("Bekreft at du vil sende innstillingene?")) {
+        errorMessage.innerText = "";
+        if (confirm("Bekreft at du vil sende innstillingene!")) {
             socket.emit('newRobotSettings', JSON.stringify(settingToSend));
             console.log(settingToSend);
         }
+    } else {
+        errorMessage.innerText = "Kan ikke lagre disse innstillingene!"
     }
 }
 
@@ -228,15 +237,19 @@ function sendNewRobotSettings(){
  * @param sensors - the array of the sensorIDs
  * @return {boolean}
  */
-function checkSensorIds(sensors){
+function checkIDs(sensors){
     let regexForID = new RegExp('^[a-zA-Z0-9#]+$'); // Ids can only contain letters and numbers (and #)
     let sensorsNotOk = false;
+    let robotIdOK = false;
     sensors.forEach(name => {
         if (!regexForID.test(name)) {
             sensorsNotOk = true;
         }
     });
-    return !sensorsNotOk;
+    if (regexForID.test(robotID) && robotID !== undefined) {
+        robotIdOK = true;
+    }
+    return (!sensorsNotOk) && robotIdOK;
 }
 
 function addSensorToLine(sensor) {
@@ -260,4 +273,12 @@ function addSensorToLine(sensor) {
     newSensorOption.appendChild(description);
     newSensorOption.appendChild(select);
     sensorPicker.appendChild(newSensorOption);
+}
+
+function setNewRobotParameters(){
+    removePreviousLines();
+    robotName.disabled = false;
+    robotName.addEventListener("change", function(){robotID = robotName.value});
+    addSensorToLine(none);
+    setListenerForSensor();
 }
