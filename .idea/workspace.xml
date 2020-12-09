@@ -43,7 +43,12 @@
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeRobot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeRobotStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobotStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeSensorStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/designMockup.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/designMockup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +93,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Website/libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Website" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -97,11 +102,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Espen\WebstormProjects\webserver\Website" />
+      <recent name="C:\Users\Espen\WebstormProjects\webserver\Website\script" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver\Website\libraries" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver\ExampleCode" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/ExampleCode" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Espen\WebstormProjects\webserver\Website\libraries" />
@@ -150,7 +155,7 @@
       <workItem from="1606233612869" duration="6469000" />
       <workItem from="1607355780833" duration="19679000" />
       <workItem from="1607431636049" duration="25379000" />
-      <workItem from="1607503913015" duration="16421000" />
+      <workItem from="1607503913015" duration="29647000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -251,7 +256,13 @@
       <option name="presentableId" value="LOCAL−00016" />
       <updated>1607458396286</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL−00017" summary="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config">
+      <created>1607528292791</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1607528292791</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +307,7 @@
     <MESSAGE value="The other time selector now works as intended" />
     <MESSAGE value="Cleaned up in the css file" />
     <MESSAGE value="Basic layout of page for changing of sensor settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic layout of page for changing of sensor settings" />
+    <MESSAGE value="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config" />
+    <option name="LAST_COMMIT_MESSAGE" value="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config" />
   </component>
 </project>

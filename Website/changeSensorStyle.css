@@ -1,6 +1,6 @@
 .choose-sensor{
     display: flex;
-    margin: 0;
+    margin: 1px;
     padding: 1px;
     background-color: #00509e;
 }
@@ -15,9 +15,8 @@
     font-family: Arial;
     font-size: larger;
 }
-
-.choose-sensor p {
-    margin: 0;
+#sensor-picker {
+    width: 80px;
 }
 .sensor-title h2 {
     display: inline-flex;

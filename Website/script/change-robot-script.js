@@ -8,32 +8,31 @@
  * GLOBAL VARIABLES
  *********************************************************************/
 
-let sensorSettings = {};
+let robotSettings = {};
 let dataLogSettings = {
     after: 0,
     before: 0
 };
-let sensorID;
-let newestSensorValue = {
-    SensorID: {},
-    ControlledItemID: {}
-};
+let robotID;
 let valueSuffix;
 let logTypeIsOther;
+let sensorSelectors = [];
+let lastSelector;
 
+// Used for sensor Id if there is NO sensor connected
+let none = 'Ingen';
+// Need to have the possibility to set a sensor to not connected
+let sensorIDs = [none];
 
 /*********************************************************************
  * DOCUMENT ELEMENTS
  *********************************************************************/
-let sensorOptions = document.getElementById("sensor-picker");
-let sensorName = document.getElementById("sensor-id");
-let sensorType = document.getElementById("sensor-type");
-let sensorSetpoint = document.getElementById("sensor-setpoint");
-let sensorFunction = document.getElementById("sensor-function");
-let robotID = document.getElementById("robot-id");
-let updateSetting = document.getElementById('update-sensor-settings');
-let hideSetpoint = document.getElementById('hide-setpoint');
-let setpointError = document.getElementById('setpoint-error');
+// let sensorOptions = document.getElementById("sensor-picker");
+let sensorPicker = document.getElementById("sensor-picker");
+// let sensorType = document.getElementById("sensor-type");
+let robotOptions = document.getElementById("robot-picker");
+let updateSetting = document.getElementById('update-robot-settings');
+let robotName = document.getElementById('robot-id');
 // TODO: if the unit is changed, ask if the unit config should be updated as well...
 // TODO: when sensors are added to a unit, automatically add sensor as a measurement...
 // TODO: If a sensor is deleted add to a deleted DB and then remove after a confirmation
@@ -51,12 +50,12 @@ const socket = io('http://localhost:3000/webserver', {
 });
 
 // Monitor the dropdown menu and change the selected sensor when it is changed
-sensorOptions.addEventListener('change', changeSensor);
+robotOptions.addEventListener('change', changeRobot);
 // updateTimeRange.addEventListener('click', userSpecifiedTime);
-updateSetting.addEventListener('click', sendNewSensorSettings);
-sensorType.addEventListener('change', setTypeOptions)
+updateSetting.addEventListener('click', sendNewRobotSettings);
+// sensorType.addEventListener('change', setTypeOptions)
 // sensorName.addEventListener('change', setSensorTypeOptions)
-sensorFunction.addEventListener('change', checkForSetpoint)
+// sensorFunction.addEventListener('change', checkForSetpoint)
 /*********************************************************************
  * EVENT LISTENERS
  *********************************************************************/
@@ -66,7 +65,7 @@ socket.on('connect', () => {
     console.log(socket.nsp);
     console.log('Get all sensor info');
     getAllSensors();
-    getAllRobots();
+
 })
 
 /**
@@ -75,97 +74,29 @@ socket.on('connect', () => {
  */
 socket.on('allSensors', (sensors) => {
     console.log('Received sensor names from server');
-    let parsedSensors = JSON.parse(sensors);
-    // Add all the sensor names to the dropdown menu
-    addOptionsToDropdown(sensorOptions, parsedSensors, parsedSensors);
+    let allSensorIds = JSON.parse(sensors);
+    allSensorIds.forEach(sensor => {
+        sensorIDs.push(sensor);
+    });
+    // Get all the robot ids
+    getAllRobots();
 });
 
 socket.on('allRobots', (robots) => {
     console.log('Received sensor names from server');
     let parsedRobots = JSON.parse(robots);
     // Add all the sensor names to the dropdown menu
-    addOptionsToDropdown(robotID, parsedRobots, parsedRobots);
+    addOptionsToDropdown(robotOptions, parsedRobots, parsedRobots);
 });
 
-socket.on('sensorInfo', (sensorInfo, callback) => {
-    let parsedSensorInfo = JSON.parse(sensorInfo);
-    sensorID = Object.keys(parsedSensorInfo)[0]
-    console.log("Received sensor settings for sensor " + sensorID);
-    sensorSettings = parsedSensorInfo;
+socket.on('robotInfo', (robotInfo, callback) => {
+    let parsedRobotInfo = JSON.parse(robotInfo);
+    robotID = Object.keys(parsedRobotInfo)[0]
+    console.log("Received sensor settings for robot " + robotID);
+    robotSettings = parsedRobotInfo;
     if (callback) callback();
 });
 
-socket.on('newSensorSettings', (sensorInfo) => {
-    console.log(sensorInfo)
-});
-
-function sendNewSensorSettings() {
-    let regexControlType = new RegExp('^reverse$|^direct$|^none$'); // Valid control types are: direct, reverse, none
-    let regexSensorType = new RegExp('^temperature$|^co2$'); // Valid types are: temperature, co2
-    let regexForID = new RegExp('^[a-zA-Z0-9#]+$'); // Ids can only contain letters and numbers (and #)
-    let regexSetpoint = new RegExp('^[0-9]+[.][0-9]+$|^[0-9]+$')
-    let regexControlledItem = new RegExp('^false$|^true$');
-
-    let settings = getNewSensorSettings();
-
-    let sensorIdOK = false;
-    let controlTypeOK = false;
-    let robotIdOK = false;
-    let sensorTypeOK = false;
-    let setpointOK = false;
-    let controlledItemOK = false;
-
-    if (regexControlledItem.test(settings['controlledItem'])) {
-        controlledItemOK = true;
-        console.log('bool ok')
-    }
-    if (regexForID.test(sensorID)) {
-        sensorIdOK = true;
-        console.log('sensor ok')
-    }
-    if (regexControlType.test(settings['controlType'])) {
-        // console.log('fdsfsd')
-        controlTypeOK = true;
-        console.log('control type ok')
-    }
-    if (regexSensorType.test(settings['type'])) {
-        sensorTypeOK = true;
-        console.log('type ok')
-
-    }
-    if (regexForID.test(settings['robot'])) {
-        robotIdOK = true;
-        console.log('robot ok')
-
-    }
-    if (regexSetpoint.test(settings['setpoint'])) {
-            setpointOK = true;
-            console.log('setpoint ok')
-        setpointError.innerText = '';
-
-    } else {
-        setpointError.innerText = 'Bruk riktig formatering for settpunkt!'
-    }
-
-    if (sensorIdOK && controlTypeOK && sensorTypeOK && robotIdOK && setpointOK && controlledItemOK) {
-        let settingsToSend = {}
-        settingsToSend[sensorID] = settings
-        console.log(settingsToSend);
-        socket.emit('newSensorSettings', JSON.stringify(settingsToSend));
-    }
-
-
-}
-
-
-
-/**
- * Function to get the sensor info for a single sensor, given the sensorID for the sensor
- * @param sensor    The ID of the sensor
- */
-function getSensorInfo(sensor) {
-    socket.emit('sensorInfo', sensor);
-}
 
 /**
  * Function to get all the sensor names from the server
@@ -218,13 +149,13 @@ function addOptionsToDropdown(dropdown, optionsToAdd, optionNames,removePrevious
  * Function for changing the sensor
  * This is used as the listening function for the dropdown menu
  */
-function changeSensor() {
+function changeRobot() {
     // Get the new sensor ID from the dropdown menu
-    let newSensor = sensorOptions.value;
-    console.log("Changed sensor to: " + newSensor);
+    let newRobot = robotOptions.value;
+    console.log("Changed robot to: " + newRobot);
     // getSensorInfo(newSensor);
     // Get the new sensor information. The callback is run when the sensor data is received
-    socket.emit('sensorInfo', newSensor, setSensorValues);
+    socket.emit('robotInfo', newRobot, setRobotValues);
     // Empty last values in newest sensor values
 
     // document.getElementById('sensor-page').style.display = 'inline-flex';
@@ -233,91 +164,100 @@ function changeSensor() {
 /**
  * Function to set new sensor info, on the summary part of the page
  */
-function setSensorValues() {
-    // Set the new sensor ID to the header
-    sensorName.value = sensorID;
-
-    //Options for sensor type: co2 or temperature
-    //Options for function: heating / cooling (temp) (if co2) only: air quality
-    //Robot options a list of robots from the server
-
-    // If the sensor is measuring co2 change the function text and real value name
-    sensorType.value = sensorSettings[sensorID]['type']
-    // if (sensorSettings[sensorID]['type'] === 'co2') {
-    //     sensorType.innerText = 'CO2:'
-    //     sensorFunction.innerText = 'Luftkvalitet';
-    //     valueSuffix = ' ppm'
-    //
-    // } else {
-    //     // Else set the real value to temperature and the function is ether heating or cooling
-    //     sensorType.value = '';
-    //     if (sensorSettings[sensorID]['controlType'] === "reversed") {
-    //         // The function is heating if the controller is reversed
-    //         sensorFunction.innerText = 'Varme';
-    //     } else {
-    //         sensorFunction.innerText = 'Kjøling';
-    //     }
-    //     valueSuffix = ' °C'
-    // }
-    // Display the setpoint for the new sensor
-    sensorSetpoint.value = sensorSettings[sensorID]['setpoint'];
-    // Display the robotID for the new sensor
-    robotID.value = sensorSettings[sensorID]['robot'];
-    // setSensorTypeOptions();
-    setTypeOptions();
-    checkForSetpoint();
+function setRobotValues() {
+    robotName.value = robotID
+    addSensors();
 }
 
-function setTypeOptions(){
-    let optionsForTemperature = ['heating', 'cooling', 'monitor'];
-    let optionNamesTemp = ['Varme', 'Kjøling', 'Overvåkning']
-    let optionsForCo2 = ['airQuality', 'monitor'];
-    let optionNamesCo2 = ['Luftkvalitet', 'Overvåkning'];
+function addSensors(){
+    let sensorsConnected = robotSettings[robotID];
 
-    if (sensorType.value === 'temperature') {
-        addOptionsToDropdown(sensorFunction, optionsForTemperature, optionNamesTemp, true);
-    } else if (sensorType.value === 'co2') {
-        addOptionsToDropdown(sensorFunction, optionsForCo2,optionNamesCo2, true);
+    sensorsConnected.push(none);
+
+    // Remove all the previous sensors
+    let line = document.getElementsByClassName('info-line');
+    while (line.length > 0){
+        line[0].parentNode.removeChild(line[0])
+    }
+
+    sensorsConnected.forEach((sensor, index) => {
+        addSensorToLine(sensor);
+    })
+
+    setListenerForSensor();
+}
+
+function setListenerForSensor(){
+    let lastSensor = sensorSelectors[sensorSelectors.length - 1];
+    lastSelector = document.getElementById(lastSensor);
+    lastSelector.addEventListener('change', addNewSensor);
+}
+
+function addNewSensor(){
+    if (lastSelector.value !== none){
+        addSensorToLine(none);
+        setListenerForSensor();
     }
 }
 
-function checkForSetpoint(){
-    // console.log('teklfdmg')
-    if (sensorFunction.value === 'monitor') {
-        // console.log('teklfdmg')
-        hideSetpoint.style.display = 'none';
-    } else {
-        hideSetpoint.style.display = 'inline-flex';
+function sendNewRobotSettings(){
+    let sensorIDs = []
+    sensorSelectors.forEach(sensor => {
+        let sensorID = document.getElementById(sensor).value;
+        if (!(sensorID === none)) {
+            sensorIDs.push(sensorID);
+        }
+
+    })
+    if (checkSensorIds(sensorIDs)){
+        console.log(sensorIDs)
+        let settingToSend = {}
+        settingToSend[robotID] = sensorIDs;
+        if (confirm("Bekreft at du vil sende innstillingene?")) {
+            socket.emit('newRobotSettings', JSON.stringify(settingToSend));
+            console.log(settingToSend);
+        }
     }
 }
 
-function getNewSensorSettings(){
-    let type = sensorType.value;
-    let setpoint = sensorSetpoint.value;
-    let robot = robotID.value;
-    let controlType;
-    let output = true;
+/**
+ * Function to check all the sensor ids given are valid.
+ * There should never occur any problems with the validation,
+ * since the sensorIds are given from the server.
+ * Only here as a backup. Returns true if the names are OK.
+ * @param sensors - the array of the sensorIDs
+ * @return {boolean}
+ */
+function checkSensorIds(sensors){
+    let regexForID = new RegExp('^[a-zA-Z0-9#]+$'); // Ids can only contain letters and numbers (and #)
+    let sensorsNotOk = false;
+    sensors.forEach(name => {
+        if (!regexForID.test(name)) {
+            sensorsNotOk = true;
+        }
+    });
+    return !sensorsNotOk;
+}
 
-    if (sensorFunction.value === 'heating') {
-        console.log('heating')
-        controlType = 'reverse';
-    } else if (sensorFunction.value === 'cooling'){
-        console.log('cooling')
-        controlType = 'direct';
-    } else if (sensorFunction.value === 'airQuality'){
-        console.log('airQuality')
-        controlType = 'direct';
-    } else if (sensorFunction.value === 'monitor') {
-        controlType = 'none'
-        output = false
-        setpoint = 0;
-    }
+function addSensorToLine(sensor) {
+    // The length of the array is the last index +1
+    let lastSensor = sensorSelectors.length;
+    let newSensorOption = document.createElement('div')
+    newSensorOption.setAttribute('class', 'info-line');
 
-    return {
-        robot: robot,
-        type: type,
-        controlType: controlType,
-        controlledItem: output,
-        setpoint: setpoint,
-    }
+    // Create the sensor description
+    let description = document.createElement('p');
+    description.innerText = 'Sensor ' + (lastSensor + 1) + ':';
+    description.setAttribute('class', 'info-text');
+
+    let select = document.createElement('select');
+    let selectId = 'sensor' + lastSensor;
+    sensorSelectors.push(selectId);
+    addOptionsToDropdown(select, sensorIDs, sensorIDs);
+    select.value = sensor;
+    select.setAttribute('id', selectId);
+    select.setAttribute('class', 'info-box');
+    newSensorOption.appendChild(description);
+    newSensorOption.appendChild(select);
+    sensorPicker.appendChild(newSensorOption);
 }

@@ -153,8 +153,6 @@ function sendNewSensorSettings() {
         console.log(settingsToSend);
         socket.emit('newSensorSettings', JSON.stringify(settingsToSend));
     }
-
-
 }
 
 
