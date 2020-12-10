@@ -216,6 +216,17 @@ function setSensorValues() {
         }
         valueSuffix = ' °C'
     }
+    if (sensorSettings[sensorID]['controlledItem'] === false){
+        document.getElementById('hide-setpoint').style.display = "none"
+        document.getElementById('hide-output').style.display = "none"
+    } else {
+        document.getElementById('hide-setpoint').style.display = "inline-flex"
+        document.getElementById('hide-output').style.display = "inline-flex"
+    }
+    //     hideSetpoint(true)
+    // } else {
+    //     hideSetpoint(false)
+    // }
     // Display the setpoint for the new sensor
     sensorSetpoint.innerText = sensorSettings[sensorID]['setpoint'] + valueSuffix;
     // Display the robotID for the new sensor
@@ -223,8 +234,9 @@ function setSensorValues() {
     updateGraphData();
 }
 
+
 function updateGraph(graphDataset, newData, removeLast) {
-    // Empty the array
+    // Empty the array of data shown in the graph
     if (removeLast) graphDataset.data = [];
     try {
         newData.forEach((object) => {

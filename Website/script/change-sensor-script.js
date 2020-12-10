@@ -101,6 +101,16 @@ socket.on('newSensorSettings', (sensorInfo) => {
     console.log(sensorInfo)
 });
 
+socket.on('newSensorSettings', feedback => {
+    if (feedback) {
+        alert('Instillingene ble lagret!');
+        // Reload the page after alert, to reset the page
+        window.location.reload();
+    } else {
+        alert('Noe gikk galt! Instillingene ble ikke lagret!');
+    }
+})
+
 function sendNewSensorSettings() {
     let regexControlType = new RegExp('^reverse$|^direct$|^none$'); // Valid control types are: direct, reverse, none
     let regexSensorType = new RegExp('^temperature$|^co2$'); // Valid types are: temperature, co2
@@ -141,25 +151,24 @@ function sendNewSensorSettings() {
 
     }
     if (regexSetpoint.test(settings['setpoint'])) {
-            setpointOK = true;
-            console.log('setpoint ok')
+        setpointOK = true;
+        console.log('setpoint ok')
         errorMessage.innerText = '';
 
     }
 
     if (sensorIdOK && controlTypeOK && sensorTypeOK && robotIdOK && setpointOK && controlledItemOK) {
-        errorMessage.innerText ="";
-        if (confirm("Bekreft at du vil sende innstillingene?")){
-        let settingsToSend = {}
-        settingsToSend[sensorID] = settings
-        console.log(settingsToSend);
-        socket.emit('newSensorSettings', JSON.stringify(settingsToSend));
-    }
+        errorMessage.innerText = "";
+        if (confirm("Bekreft at du vil sende innstillingene?")) {
+            let settingsToSend = {}
+            settingsToSend[sensorID] = settings
+            console.log(settingsToSend);
+            socket.emit('newSensorSettings', JSON.stringify(settingsToSend));
+        }
     } else {
         errorMessage.innerText = "Kan ikke lagre disse innstillingene!"
     }
 }
-
 
 
 /**
@@ -193,10 +202,10 @@ function getAllRobots() {
  * @param removePrevious
  * @param callback      Runs after all options has been added
  */
-function addOptionsToDropdown(dropdown, optionsToAdd, optionNames,removePrevious, callback) {
+function addOptionsToDropdown(dropdown, optionsToAdd, optionNames, removePrevious, callback) {
     if (removePrevious) {
         let optionsNumber = dropdown.options.length - 1
-        while (dropdown.options.length > 0){
+        while (dropdown.options.length > 0) {
             dropdown.remove(0)
         }
     }
@@ -271,7 +280,7 @@ function setSensorValues() {
     checkForSetpoint();
 }
 
-function setTypeOptions(){
+function setTypeOptions() {
     let optionsForTemperature = ['heating', 'cooling', 'monitor'];
     let optionNamesTemp = ['Varme', 'Kjøling', 'Overvåkning']
     let optionsForCo2 = ['airQuality', 'monitor'];
@@ -280,11 +289,11 @@ function setTypeOptions(){
     if (sensorType.value === 'temperature') {
         addOptionsToDropdown(sensorFunction, optionsForTemperature, optionNamesTemp, true);
     } else if (sensorType.value === 'co2') {
-        addOptionsToDropdown(sensorFunction, optionsForCo2,optionNamesCo2, true);
+        addOptionsToDropdown(sensorFunction, optionsForCo2, optionNamesCo2, true);
     }
 }
 
-function checkForSetpoint(){
+function checkForSetpoint() {
     // console.log('teklfdmg')
     if (sensorFunction.value === 'monitor') {
         // console.log('teklfdmg')
@@ -294,7 +303,7 @@ function checkForSetpoint(){
     }
 }
 
-function getNewSensorSettings(){
+function getNewSensorSettings() {
     let type = sensorType.value;
     let setpoint = sensorSetpoint.value;
     let robot = robotID.value;
@@ -304,10 +313,10 @@ function getNewSensorSettings(){
     if (sensorFunction.value === 'heating') {
         console.log('heating')
         controlType = 'reverse';
-    } else if (sensorFunction.value === 'cooling'){
+    } else if (sensorFunction.value === 'cooling') {
         console.log('cooling')
         controlType = 'direct';
-    } else if (sensorFunction.value === 'airQuality'){
+    } else if (sensorFunction.value === 'airQuality') {
         console.log('airQuality')
         controlType = 'direct';
     } else if (sensorFunction.value === 'monitor') {
@@ -325,7 +334,9 @@ function getNewSensorSettings(){
     }
 }
 
-function setNewSensorParameters(){
+function setNewSensorParameters() {
     sensorName.disabled = false;
-    sensorName.addEventListener("change", function(){sensorID = sensorName.value});
+    sensorName.addEventListener("change", function () {
+        sensorID = sensorName.value
+    });
 }

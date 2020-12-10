@@ -39,13 +39,14 @@ nav {
 nav a {
     height: fit-content;
     text-decoration: none;
-    padding: 1% 1%;
+    padding: 15px 30px;
     border: 1px solid #03045E;
     background: #61A5C2;
     /*font-palette: ;*/
     color: black;
     font-family: Arial;
     font-size: larger;
+    margin: 5px;
 }
 
 main {

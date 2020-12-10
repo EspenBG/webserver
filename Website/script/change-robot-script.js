@@ -100,6 +100,15 @@ socket.on('robotInfo', (robotInfo, callback) => {
     if (callback) callback();
 });
 
+socket.on('newRobotSettings', feedback => {
+    if (feedback) {
+        alert('Instillingene ble lagret!');
+        // Reload the page after alert, to reset the page
+        window.location.reload();
+    } else {
+        alert('Noe gikk galt! Instillingene ble ikke lagret!');
+    }
+})
 
 /**
  * Function to get all the sensor names from the server
