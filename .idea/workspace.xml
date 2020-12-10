@@ -35,14 +35,16 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:wip" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:wip/web-design" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:wip/get-data-from-server" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Website/script/mockup-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +56,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -85,7 +88,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Website" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -94,21 +97,23 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Espen\WebstormProjects\webserver\Website" />
+      <recent name="C:\Users\Espen\WebstormProjects\webserver\Website\script" />
+      <recent name="C:\Users\Espen\WebstormProjects\webserver\Website\libraries" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver\ExampleCode" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/ExampleCode" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Espen\WebstormProjects\webserver\Website\libraries" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver\Website" />
       <recent name="C:\Users\Espen\WebstormProjects\webserver" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.mockup-script.js">
+  <component name="RunManager" selected="Node.js.index.js">
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="mockup-script.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="mockup-script.js" working-dir="$PROJECT_DIR$/Website/script">
+    <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Website/script/script.js" working-dir="$PROJECT_DIR$/Website/script">
       <method v="2" />
     </configuration>
     <configuration name="socket.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Website/script/socket.js" working-dir="$PROJECT_DIR$/Website/script">
@@ -116,7 +121,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.mockup-script.js" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.socket.js" />
       </list>
@@ -142,6 +146,11 @@
       <workItem from="1604938137493" duration="1021000" />
       <workItem from="1605361976546" duration="770000" />
       <workItem from="1605704080423" duration="9052000" />
+      <workItem from="1606233612869" duration="6469000" />
+      <workItem from="1607355780833" duration="19679000" />
+      <workItem from="1607431636049" duration="25379000" />
+      <workItem from="1607503913015" duration="39239000" />
+      <workItem from="1607604615588" duration="4058000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -176,7 +185,103 @@
       <option name="project" value="LOCAL" />
       <updated>1605820378515</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="The dropdown menu in the header now works and you can choose a sensor.">
+      <created>1606159133112</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1606159133112</updated>
+    </task>
+    <task id="LOCAL−00007" summary="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value">
+      <created>1606163485923</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1606163485923</updated>
+    </task>
+    <task id="LOCAL−00008" summary="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value">
+      <created>1606164239861</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1606164239861</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Added comments and definitions to the new functions">
+      <created>1606247369856</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1606247369856</updated>
+    </task>
+    <task id="LOCAL−00010" summary="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server">
+      <created>1606250808725</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1606250808725</updated>
+    </task>
+    <task id="LOCAL−00011" summary="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server">
+      <created>1606251187305</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1606251187305</updated>
+    </task>
+    <task id="LOCAL−00012" summary="The webpage can now show sensor data form the server.">
+      <created>1607374480179</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1607374480179</updated>
+    </task>
+    <task id="LOCAL−00013" summary="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update">
+      <created>1607443336456</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1607443336456</updated>
+    </task>
+    <task id="LOCAL−00014" summary="The other time selector now works as intended">
+      <created>1607453610439</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1607453610439</updated>
+    </task>
+    <task id="LOCAL−00015" summary="Cleaned up in the css file">
+      <created>1607453702467</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1607453702467</updated>
+    </task>
+    <task id="LOCAL−00016" summary="Basic layout of page for changing of sensor settings">
+      <created>1607458396286</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1607458396286</updated>
+    </task>
+    <task id="LOCAL−00017" summary="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config">
+      <created>1607528292791</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1607528292791</updated>
+    </task>
+    <task id="LOCAL−00018" summary="The change robot page is now functional&#10;- It is not possible to add a new unit yet">
+      <created>1607544616131</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1607544616131</updated>
+    </task>
+    <task id="LOCAL−00019" summary="Fixed som styling for the webpages, and cleaned up some unused files.">
+      <created>1607545724600</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1607545724600</updated>
+    </task>
+    <task id="LOCAL−00020" summary="It is now possible to add a new sensor">
+      <created>1607548428023</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1607548428023</updated>
+    </task>
+    <task id="LOCAL−00021" summary="Colours and fonts are now uniform across all the webpages">
+      <created>1607590033615</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1607590033615</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +298,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="wip/web-design" />
+                        <option value="wip/get-data-from-server" />
                       </list>
                     </value>
                   </entry>
@@ -212,149 +317,20 @@
     <MESSAGE value="1. draft of webpage" />
     <MESSAGE value="small bug fixed" />
     <MESSAGE value="First draft of the webpage" />
-    <option name="LAST_COMMIT_MESSAGE" value="First draft of the webpage" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="-1828" y="92" width="1736" height="976" key="DiffContextDialog" timestamp="1603966011380">
-      <screen x="-1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="-1828" y="92" width="1736" height="976" key="DiffContextDialog/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603966011380" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="321" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603987185838" />
-    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1415" height="168" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604937630537" />
-    <state width="1472" height="561" key="GridCell.Tab.0.bottom/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604503192274" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="321" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603987185838" />
-    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1415" height="168" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1604937630536" />
-    <state width="1472" height="561" key="GridCell.Tab.0.center/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604503192273" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="321" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603987185838" />
-    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1415" height="168" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1604937630536" />
-    <state width="1472" height="561" key="GridCell.Tab.0.left/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604503192273" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="321" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603987185838" />
-    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1415" height="168" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1604937630536" />
-    <state width="1472" height="561" key="GridCell.Tab.0.right/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604503192274" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.1.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604937630521" />
-    <state width="1472" height="733" key="GridCell.Tab.1.bottom/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454842" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.1.center/0.23.1440.814@0.23.1440.814" timestamp="1604937630520" />
-    <state width="1472" height="733" key="GridCell.Tab.1.center/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454840" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.1.left/0.23.1440.814@0.23.1440.814" timestamp="1604937630519" />
-    <state width="1472" height="733" key="GridCell.Tab.1.left/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454839" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.1.right/0.23.1440.814@0.23.1440.814" timestamp="1604937630520" />
-    <state width="1472" height="733" key="GridCell.Tab.1.right/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454841" />
-    <state width="1899" height="348" key="GridCell.Tab.2.bottom" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.2.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604937630523" />
-    <state width="1472" height="733" key="GridCell.Tab.2.bottom/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454844" />
-    <state width="1899" height="348" key="GridCell.Tab.2.center" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.2.center/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.2.center/0.23.1440.814@0.23.1440.814" timestamp="1604937630522" />
-    <state width="1472" height="733" key="GridCell.Tab.2.center/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454843" />
-    <state width="1899" height="348" key="GridCell.Tab.2.left" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.2.left/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.2.left/0.23.1440.814@0.23.1440.814" timestamp="1604937630521" />
-    <state width="1472" height="733" key="GridCell.Tab.2.left/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454842" />
-    <state width="1899" height="348" key="GridCell.Tab.2.right" timestamp="1605371241469">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.2.right/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605371241469" />
-    <state width="1472" height="733" key="GridCell.Tab.2.right/0.23.1440.814@0.23.1440.814" timestamp="1604937630522" />
-    <state width="1472" height="733" key="GridCell.Tab.2.right/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454844" />
-    <state width="1472" height="733" key="GridCell.Tab.3.bottom" timestamp="1604937630525">
-      <screen x="0" y="23" width="1440" height="814" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561887811" />
-    <state width="1472" height="733" key="GridCell.Tab.3.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604937630525" />
-    <state width="1472" height="733" key="GridCell.Tab.3.bottom/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454847" />
-    <state width="1472" height="733" key="GridCell.Tab.3.center" timestamp="1604937630524">
-      <screen x="0" y="23" width="1440" height="814" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.3.center/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561887811" />
-    <state width="1472" height="733" key="GridCell.Tab.3.center/0.23.1440.814@0.23.1440.814" timestamp="1604937630524" />
-    <state width="1472" height="733" key="GridCell.Tab.3.center/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454845" />
-    <state width="1472" height="733" key="GridCell.Tab.3.left" timestamp="1604937630523">
-      <screen x="0" y="23" width="1440" height="814" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.3.left/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561887811" />
-    <state width="1472" height="733" key="GridCell.Tab.3.left/0.23.1440.814@0.23.1440.814" timestamp="1604937630523" />
-    <state width="1472" height="733" key="GridCell.Tab.3.left/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454845" />
-    <state width="1472" height="733" key="GridCell.Tab.3.right" timestamp="1604937630524">
-      <screen x="0" y="23" width="1440" height="814" />
-    </state>
-    <state width="1899" height="348" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561887811" />
-    <state width="1472" height="733" key="GridCell.Tab.3.right/0.23.1440.814@0.23.1440.814" timestamp="1604937630524" />
-    <state width="1472" height="733" key="GridCell.Tab.3.right/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604498454846" />
-    <state x="-1168" y="282" key="RollbackChangesDialog" timestamp="1603965514471">
-      <screen x="-1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="-1168" y="282" key="RollbackChangesDialog/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603965514471" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1605866772764">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605866772764" />
-    <state x="346" y="87" key="SettingsEditor/0.25.1440.790@0.25.1440.790" timestamp="1605801438782" />
-    <state x="414" y="239" key="Vcs.Push.Dialog.v2" timestamp="1605820383181">
-      <screen x="0" y="25" width="1440" height="790" />
-    </state>
-    <state x="-1368" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603371337789" />
-    <state x="552" y="281" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603561885193" />
-    <state x="414" y="239" key="Vcs.Push.Dialog.v2/0.25.1440.790@0.25.1440.790" timestamp="1605820383181" />
-    <state x="414" y="239" key="Vcs.Push.Dialog.v2/0.25.1440.791@0.25.1440.791" timestamp="1605443090164" />
-    <state x="583" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605987075722">
-      <screen x="0" y="25" width="1440" height="791" />
-    </state>
-    <state x="-1143" y="484" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@-1920.0.1920.1160" timestamp="1603964827610" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603385952742" />
-    <state x="583" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.814@0.23.1440.814" timestamp="1604937626337" />
-    <state x="319" y="-1279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877/-1235.-2137.3840.2057@-1235.-2137.3840.2057" timestamp="1604501347685" />
-    <state x="583" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.790@0.25.1440.790" timestamp="1605363308206" />
-    <state x="583" y="355" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.791@0.25.1440.791" timestamp="1605987075722" />
-    <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1603554154777">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603554154777" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1605367451652">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1605367451652" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603553850914">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1160@0.0.1920.1040" timestamp="1603553850914" />
+    <MESSAGE value="The dropdown menu in the header now works and you can choose a sensor." />
+    <MESSAGE value="The following settings are now defined according to sensorInfo:&#10;- SensorID&#10;- Setpoint&#10;- Sensor function&#10;- Changes between temperature and co2 for real value" />
+    <MESSAGE value="Added comments and definitions to the new functions" />
+    <MESSAGE value="The log-period can now be selected&#10;- there is NO function to display data yet&#10;- there in NO function to get sensor data from the server" />
+    <MESSAGE value="The webpage can now show sensor data form the server." />
+    <MESSAGE value="The last value of the sensor is now showing correctly.&#10;- The last value is updated if the server sends a new value&#10;- The last value show the timestamp for last update" />
+    <MESSAGE value="The other time selector now works as intended" />
+    <MESSAGE value="Cleaned up in the css file" />
+    <MESSAGE value="Basic layout of page for changing of sensor settings" />
+    <MESSAGE value="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config" />
+    <MESSAGE value="The change robot page is now functional&#10;- It is not possible to add a new unit yet" />
+    <MESSAGE value="Fixed som styling for the webpages, and cleaned up some unused files." />
+    <MESSAGE value="It is now possible to add a new sensor" />
+    <MESSAGE value="Colours and fonts are now uniform across all the webpages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Colours and fonts are now uniform across all the webpages" />
   </component>
 </project>

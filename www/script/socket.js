@@ -2,7 +2,7 @@ const serverIP = 'http://localhost:3000';
 const websiteNamespace = '/webserver';
 
 
-const socket = io('http://localhost:3000/admin', {
+const socket = io('http://localhost:3000/webserver', {
     reconnectionDelayMax: 10000,
     //namespace: '/admin',
 });
@@ -72,12 +72,12 @@ function changeStopState(state) {
 //This is the function that will make the ESP32 transmit data to the server, and not the other way around
 function requestDataFromBoard(interval) {
     //socket.emit('requestDataFromBoard', interval); //Here we tell the server to call the function "requestDataFromBoard" with a argument called "intervall"
-    //The intervall value is the period of time between each data transmit from the ESP32 to the server. Typical values can be everything form 100ms to 100s
+    //The interval value is the period of time between each data transmit from the ESP32 to the server. Typical values can be everything form 100ms to 100s
     console.log("requestDataFromBoard was called with intervall: " + interval);
     const dataToSend = JSON.stringify({
-        'timeInterval': "0",
-        'unitIDs': "1",
-        'sensorIDs': "#####1"
+        'startTime': "1605023061752",
+        'stopTime':  "1704669200206",
+        'sensorID': "#####2"
     });
 
     socket.emit('getData', dataToSend);
@@ -94,6 +94,7 @@ function stopDataFromBoard() { //Tells the server to stop all timers so that dat
 socket.on('dataResponse', (message) => {
     console.log('data received from server');
     const parsedMessage = JSON.parse(message);
+    console.log(parsedMessage);
     const Sensor1 = parsedMessage.SensorID['#####2'];
     console.log(Sensor1[0].time);
     const timeString = 'Time:' + Sensor1[0].time;
