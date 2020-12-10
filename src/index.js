@@ -20,22 +20,11 @@ const jwt = require('jsonwebtoken');
 // other requires
 
 
-
-const robotServer = ioClient('http://10.0.1.42:3000/admin', {
-    reconnectionDelayMax: 10000,
-    key: "TEST",
-});
-
-robotServer.on('connect', () => {
-    robotServer.emit('test', "sample text")
-})
-
-
 /*********************************************************************
 * MAIN PROGRAM
 *********************************************************************/
 // Set the directory the webclients can access, the clients can only request files from this directory
-app.use(express.static(__dirname + '/www'));
+app.use(express.static(__dirname + '/Website'));
 
 
 app.get('/', (req, res) => {
