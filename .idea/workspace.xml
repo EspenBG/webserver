@@ -45,7 +45,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="" />
+    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +114,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
-    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Website/script/script.js" working-dir="$PROJECT_DIR$/Website/script">
@@ -281,7 +285,13 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1607590033615</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages">
+      <created>1607629423434</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1607629423434</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,19 +302,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="bug/json-package" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -331,6 +329,7 @@
     <MESSAGE value="Fixed som styling for the webpages, and cleaned up some unused files." />
     <MESSAGE value="It is now possible to add a new sensor" />
     <MESSAGE value="Colours and fonts are now uniform across all the webpages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Colours and fonts are now uniform across all the webpages" />
+    <MESSAGE value="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages" />
   </component>
 </project>
