@@ -45,7 +45,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="" />
+    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +65,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="wip/get-data-from-server" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -110,7 +112,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
-    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Website/script/script.js" working-dir="$PROJECT_DIR$/Website/script">
@@ -292,19 +294,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="bug/json-package" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
