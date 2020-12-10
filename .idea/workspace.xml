@@ -43,13 +43,11 @@
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/changeRobot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobot.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeRobotStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobotStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeSensorStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +153,7 @@
       <workItem from="1606233612869" duration="6469000" />
       <workItem from="1607355780833" duration="19679000" />
       <workItem from="1607431636049" duration="25379000" />
-      <workItem from="1607503913015" duration="33537000" />
+      <workItem from="1607503913015" duration="35515000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -274,7 +272,13 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1607545724600</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="It is now possible to add a new sensor">
+      <created>1607548428023</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1607548428023</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +326,7 @@
     <MESSAGE value="The change sensor page is now functional&#10;- There is no ability to add new sensors yet&#10;- Added files for changing the robot config" />
     <MESSAGE value="The change robot page is now functional&#10;- It is not possible to add a new unit yet" />
     <MESSAGE value="Fixed som styling for the webpages, and cleaned up some unused files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed som styling for the webpages, and cleaned up some unused files." />
+    <MESSAGE value="It is now possible to add a new sensor" />
+    <option name="LAST_COMMIT_MESSAGE" value="It is now possible to add a new sensor" />
   </component>
 </project>
