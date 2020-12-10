@@ -11,14 +11,6 @@
 const express = require('express')
 const app = express()
 const server = require('http').createServer(app);
-const io = require('socket.io').listen(server);
-const ioClient = require('socket.io-client');
-const jwt = require('jsonwebtoken');
-
-//const {token} = sessionStorage;
-
-// other requires
-
 
 /*********************************************************************
 * MAIN PROGRAM
@@ -40,9 +32,3 @@ app.listen(8000, (server) => {
 /*********************************************************************
  * PROGRAM FUNCTIONS
  *********************************************************************/
-// TODO implement function to get data from robot server
-
-// TODO: Add function to add
-
-// TODO: add function for making of sensor
-

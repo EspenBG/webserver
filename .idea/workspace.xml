@@ -45,7 +45,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="" />
+    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="Config file for forever">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -281,7 +284,13 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1607590033615</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="Config file for forever">
+      <created>1607633831646</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1607633831646</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +340,7 @@
     <MESSAGE value="Fixed som styling for the webpages, and cleaned up some unused files." />
     <MESSAGE value="It is now possible to add a new sensor" />
     <MESSAGE value="Colours and fonts are now uniform across all the webpages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Colours and fonts are now uniform across all the webpages" />
+    <MESSAGE value="Config file for forever" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config file for forever" />
   </component>
 </project>
