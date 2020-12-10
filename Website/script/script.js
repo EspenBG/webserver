@@ -208,7 +208,7 @@ function setSensorValues() {
     } else {
         // Else set the real value to temperature and the function is ether heating or cooling
         sensorType.innerText = 'Temperatur:';
-        if (sensorSettings[sensorID]['controlType'] === "reversed") {
+        if (sensorSettings[sensorID]['controlType'] === "reverse") {
             // The function is heating if the controller is reversed
             sensorFunction.innerText = 'Varme';
         } else {
@@ -219,6 +219,7 @@ function setSensorValues() {
     if (sensorSettings[sensorID]['controlledItem'] === false){
         document.getElementById('hide-setpoint').style.display = "none"
         document.getElementById('hide-output').style.display = "none"
+        sensorFunction.innerText = 'Overvåkning';
     } else {
         document.getElementById('hide-setpoint').style.display = "inline-flex"
         document.getElementById('hide-output').style.display = "inline-flex"
@@ -230,7 +231,7 @@ function setSensorValues() {
     // Display the setpoint for the new sensor
     sensorSetpoint.innerText = sensorSettings[sensorID]['setpoint'] + valueSuffix;
     // Display the robotID for the new sensor
-    robotID.innerText = sensorSettings[sensorID]['unit'];
+    robotID.innerText = sensorSettings[sensorID]['robot'];
     updateGraphData();
 }
 

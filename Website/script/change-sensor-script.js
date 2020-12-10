@@ -255,28 +255,26 @@ function setSensorValues() {
 
     // If the sensor is measuring co2 change the function text and real value name
     sensorType.value = sensorSettings[sensorID]['type']
-    // if (sensorSettings[sensorID]['type'] === 'co2') {
-    //     sensorType.innerText = 'CO2:'
-    //     sensorFunction.innerText = 'Luftkvalitet';
-    //     valueSuffix = ' ppm'
-    //
-    // } else {
-    //     // Else set the real value to temperature and the function is ether heating or cooling
-    //     sensorType.value = '';
-    //     if (sensorSettings[sensorID]['controlType'] === "reversed") {
-    //         // The function is heating if the controller is reversed
-    //         sensorFunction.innerText = 'Varme';
-    //     } else {
-    //         sensorFunction.innerText = 'Kjøling';
-    //     }
-    //     valueSuffix = ' °C'
-    // }
+
+    setTypeOptions();
+    if (sensorSettings[sensorID]['controlledItem'] === false) {
+        // console.log('heating')
+        sensorFunction.value = 'monitor';
+    } else if (sensorSettings[sensorID]['type'] === "co2") {
+        // console.log('cooling')
+        sensorFunction.value = 'airQuality';
+    } else if (sensorSettings[sensorID]['controlType'] === 'reverse') {
+        console.log('airQuality')
+        sensorFunction.value = 'heating';
+    } else{
+        sensorFunction.value = 'cooling';
+
+    }
     // Display the setpoint for the new sensor
     sensorSetpoint.value = sensorSettings[sensorID]['setpoint'];
     // Display the robotID for the new sensor
     robotID.value = sensorSettings[sensorID]['robot'];
     // setSensorTypeOptions();
-    setTypeOptions();
     checkForSetpoint();
 }
 

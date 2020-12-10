@@ -33,19 +33,16 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:wip" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/wip/get-data-from-server" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:wip/get-data-from-server" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/script.js" afterDir="false" />
     </list>
@@ -112,7 +109,7 @@
       <recent name="C:\Users\Espen\WebstormProjects\webserver" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.mockup-script.js">
+  <component name="RunManager" selected="Node.js.index.js">
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -124,7 +121,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.mockup-script.js" />
         <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.socket.js" />
       </list>
@@ -154,6 +150,7 @@
       <workItem from="1607355780833" duration="19679000" />
       <workItem from="1607431636049" duration="25379000" />
       <workItem from="1607503913015" duration="39239000" />
+      <workItem from="1607604615588" duration="4058000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -301,7 +298,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/wip/get-data-from-server" />
+                        <option value="wip/get-data-from-server" />
                       </list>
                     </value>
                   </entry>
