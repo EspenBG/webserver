@@ -47,21 +47,12 @@
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="Config file for forever">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeRobot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/changeRobotStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobotStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/changeSensorStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/libraries/drag-drop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/chartoperation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/chartoperation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/forever-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/forever-config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +165,7 @@
       <workItem from="1607853519190" duration="6106000" />
       <workItem from="1607941592440" duration="4042000" />
       <workItem from="1608234390890" duration="4585000" />
-      <workItem from="1608269002975" duration="2179000" />
+      <workItem from="1608269002975" duration="9134000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -317,7 +308,13 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1607636617217</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL−00024" summary="Refactoring of the website is finished.&#10;- The scripts has not been refactored yet.">
+      <created>1608271328918</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1608271328918</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,6 +365,7 @@
     <MESSAGE value="It is now possible to add a new sensor" />
     <MESSAGE value="Colours and fonts are now uniform across all the webpages" />
     <MESSAGE value="Config file for forever" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config file for forever" />
+    <MESSAGE value="Refactoring of the website is finished.&#10;- The scripts has not been refactored yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of the website is finished.&#10;- The scripts has not been refactored yet." />
   </component>
 </project>

@@ -1,12 +1,5 @@
 var ctx = document.getElementById('myChart').getContext('2d'); //Defines the basic graphic element of the graph
-let testData = [{y: 27.58, t: 1607360198700},
-{y: 20.9, t: 1607361204714},
-{y: 21.4, t: 1607360207703},
-{y: 28.05, t: 1607360210734},
-{y: 20.72, t: 1607360219761},
-{y: 23.26, t: 1607360258810},
-{y: 27.29, t: 1607360264854},
-{y: 22.89, t: 1607360270872}];
+
 
 let timeFormat = 'x';
 
@@ -48,12 +41,13 @@ var myLineChart = new Chart(ctx, { //Defines the graph
     },
     options: {
         // responsive: true,
-        title:      {
+        title: {
             display: true,
-            text:    "Sensor data"
+            text: "Sensor data"
         },
 
-        scales:     {
+        scales: {
+            // Scale the x-axes by time
             xAxes: [{
                 type: "time",
                 time: {
@@ -61,23 +55,25 @@ var myLineChart = new Chart(ctx, { //Defines the graph
                     tooltipFormat: 'll'
                 },
                 scaleLabel: {
-                    display:     true,
+                    display: true,
                     labelString: 'Tid'
                 },
                 distribution: 'linear'
             }],
             yAxes: [{
-                id:'A',
+                // Define sensor data as one y axes
+                id: 'A',
                 scaleLabel: {
 
-                    display:     true,
+                    display: true,
                     labelString: 'Verdi'
                 }
             },
                 {
-                    id:'B',
+                    // Define output data as one y axis
+                    id: 'B',
                     scaleLabel: {
-                        display:     true,
+                        display: true,
                         labelString: 'Utgang'
                     },
                     position: 'right',

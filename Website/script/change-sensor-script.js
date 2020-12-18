@@ -9,18 +9,7 @@
  *********************************************************************/
 
 let sensorSettings = {};
-let dataLogSettings = {
-    after: 0,
-    before: 0
-};
 let sensorID;
-let newestSensorValue = {
-    SensorID: {},
-    ControlledItemID: {}
-};
-let valueSuffix;
-let logTypeIsOther;
-
 
 /*********************************************************************
  * DOCUMENT ELEMENTS
@@ -35,11 +24,7 @@ let updateSetting = document.getElementById('update-sensor-settings');
 let hideSetpoint = document.getElementById('hide-setpoint');
 let errorMessage = document.getElementById('error');
 let addSensor = document.getElementById('add-sensor')
-// TODO: if the unit is changed, ask if the unit config should be updated as well...
-// TODO: when sensors are added to a unit, automatically add sensor as a measurement...
-// TODO: If a sensor is deleted add to a deleted DB and then remove after a confirmation
-// TODO: Wait for confirmation from the server after processing a request
-// TODO: Sanitize data both on the server side and the client side, to ensure the change dont corrupt something
+
 
 /*********************************************************************
  * MAIN PROGRAM
@@ -59,6 +44,7 @@ sensorType.addEventListener('change', setTypeOptions)
 // sensorName.addEventListener('change', setSensorTypeOptions)
 sensorFunction.addEventListener('change', checkForSetpoint)
 addSensor.addEventListener('click', setNewSensorParameters)
+
 /*********************************************************************
  * EVENT LISTENERS
  *********************************************************************/
@@ -82,6 +68,9 @@ socket.on('allSensors', (sensors) => {
     addOptionsToDropdown(sensorOptions, parsedSensors, parsedSensors);
 });
 
+/**
+ * When receiving all the robots, add them to the robot selector
+ */
 socket.on('allRobots', (robots) => {
     console.log('Received sensor names from server');
     let parsedRobots = JSON.parse(robots);
@@ -89,18 +78,23 @@ socket.on('allRobots', (robots) => {
     addOptionsToDropdown(robotID, parsedRobots, parsedRobots);
 });
 
+/**
+ * When receiving the configuration for a new sensor,
+ * update the webpage with the new data.
+ */
 socket.on('sensorInfo', (sensorInfo, callback) => {
     let parsedSensorInfo = JSON.parse(sensorInfo);
+    // Set the new setting to the global variables
     sensorID = Object.keys(parsedSensorInfo)[0]
     console.log("Received sensor settings for sensor " + sensorID);
     sensorSettings = parsedSensorInfo;
+    // Run the callback if it is defined
     if (callback) callback();
 });
 
-socket.on('newSensorSettings', (sensorInfo) => {
-    console.log(sensorInfo)
-});
-
+/**
+ * Give feedback to the user if the configuration was successful or not.
+ */
 socket.on('newSensorSettings', feedback => {
     if (feedback) {
         alert('Instillingene ble lagret!');
@@ -111,15 +105,27 @@ socket.on('newSensorSettings', feedback => {
     }
 })
 
+/*********************************************************************
+ * PROGRAM FUNCTIONS
+ *********************************************************************/
+
+/**
+ * Function for checking of the sensor configuration.
+ * Runs when the user tries to save the configuration.
+ * This is mostly as a failsafe in case the webpage is showing the wrong settings.
+ */
 function sendNewSensorSettings() {
+    // Define what the valid formats are
     let regexControlType = new RegExp('^reverse$|^direct$|^none$'); // Valid control types are: direct, reverse, none
     let regexSensorType = new RegExp('^temperature$|^co2$'); // Valid types are: temperature, co2
     let regexForID = new RegExp('^[a-zA-Z0-9#]+$'); // Ids can only contain letters and numbers (and #)
     let regexSetpoint = new RegExp('^[0-9]+[.][0-9]+$|^[0-9]+$')
     let regexControlledItem = new RegExp('^false$|^true$');
 
+    // Get the new sensors settings
     let settings = getNewSensorSettings();
 
+    // Status flags
     let sensorIdOK = false;
     let controlTypeOK = false;
     let robotIdOK = false;
@@ -127,29 +133,35 @@ function sendNewSensorSettings() {
     let setpointOK = false;
     let controlledItemOK = false;
 
+    // Check the controlled item selection
     if (regexControlledItem.test(settings['controlledItem'])) {
         controlledItemOK = true;
         console.log('bool ok')
     }
+    // Check the sensor ID
     if (regexForID.test(sensorID)) {
         sensorIdOK = true;
         console.log('sensor ok')
     }
+    // Check the control type
     if (regexControlType.test(settings['controlType'])) {
         // console.log('fdsfsd')
         controlTypeOK = true;
         console.log('control type ok')
     }
+    // Check the sensor type
     if (regexSensorType.test(settings['type'])) {
         sensorTypeOK = true;
         console.log('type ok')
 
     }
+    // Check the robot ID
     if (regexForID.test(settings['robot'])) {
         robotIdOK = true;
         console.log('robot ok')
 
     }
+    // Check the setpoint
     if (regexSetpoint.test(settings['setpoint'])) {
         setpointOK = true;
         console.log('setpoint ok')
@@ -159,6 +171,7 @@ function sendNewSensorSettings() {
 
     if (sensorIdOK && controlTypeOK && sensorTypeOK && robotIdOK && setpointOK && controlledItemOK) {
         errorMessage.innerText = "";
+        // Ask the user for confirmation if the settings are ok
         if (confirm("Bekreft at du vil sende innstillingene?")) {
             let settingsToSend = {}
             settingsToSend[sensorID] = settings
@@ -195,7 +208,7 @@ function getAllRobots() {
 
 /**
  * Function to add multiple options to a dropdown selector.
- * All the opt
+ * All the options that is added is given as a parameter.
  * @param dropdown      The dropdown element
  * @param optionsToAdd  Array containing all the options to add
  * @param optionNames   The display text for the option
@@ -238,8 +251,6 @@ function changeSensor() {
     // Get the new sensor information. The callback is run when the sensor data is received
     socket.emit('sensorInfo', newSensor, setSensorValues);
     // Empty last values in newest sensor values
-
-    // document.getElementById('sensor-page').style.display = 'inline-flex';
 }
 
 /**
@@ -249,14 +260,14 @@ function setSensorValues() {
     // Set the new sensor ID to the header
     sensorName.value = sensorID;
 
-    //Options for sensor type: co2 or temperature
-    //Options for function: heating / cooling (temp) (if co2) only: air quality
-    //Robot options a list of robots from the server
+    // Options for sensor type: co2 or temperature
+    // Options for function: heating / cooling (temp) (if co2) only: air quality
 
-    // If the sensor is measuring co2 change the function text and real value name
+    // If the sensor is measuring co2 change the function text and read value name
     sensorType.value = sensorSettings[sensorID]['type']
 
     setTypeOptions();
+    // Reformat the user setting to the same format as the sensor configuration
     if (sensorSettings[sensorID]['controlledItem'] === false) {
         // console.log('heating')
         sensorFunction.value = 'monitor';
@@ -278,6 +289,10 @@ function setSensorValues() {
     checkForSetpoint();
 }
 
+/**
+ * Function to set the correct options for the dropdown menu
+ * for selecting sensor type and function
+ */
 function setTypeOptions() {
     let optionsForTemperature = ['heating', 'cooling', 'monitor'];
     let optionNamesTemp = ['Varme', 'Kjøling', 'Overvåkning']
@@ -291,16 +306,25 @@ function setTypeOptions() {
     }
 }
 
+/**
+ * Function to set the visibility of the setpoint option
+ * Depending on the previous choices for the function
+ */
 function checkForSetpoint() {
-    // console.log('teklfdmg')
+    // console.log('teklfdmg') // Used for debugging
     if (sensorFunction.value === 'monitor') {
-        // console.log('teklfdmg')
+        // console.log('teklfdmg') // Used for debugging
         hideSetpoint.style.display = 'none';
     } else {
         hideSetpoint.style.display = 'inline-flex';
     }
 }
 
+/**
+ * Function to format the user inputs to the same format as the sensor-config
+ * Returns the final settings.
+ * @return {{robot, setpoint: number, controlType: string, controlledItem: boolean, type}}
+ */
 function getNewSensorSettings() {
     let type = sensorType.value;
     let setpoint = sensorSetpoint.value;
@@ -332,6 +356,9 @@ function getNewSensorSettings() {
     }
 }
 
+/**
+ * Function to enable the sensorID field if the user is adding a new sensor.
+ */
 function setNewSensorParameters() {
     sensorName.disabled = false;
     sensorName.addEventListener("change", function () {

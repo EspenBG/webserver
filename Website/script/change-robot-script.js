@@ -21,19 +21,13 @@ let sensorIDs = [none];
 /*********************************************************************
  * DOCUMENT ELEMENTS
  *********************************************************************/
-// let sensorOptions = document.getElementById("sensor-picker");
 let sensorPicker = document.getElementById("sensor-picker");
-// let sensorType = document.getElementById("sensor-type");
 let robotOptions = document.getElementById("robot-picker");
 let updateSetting = document.getElementById('update-robot-settings');
 let robotName = document.getElementById('robot-id');
 let addRobot = document.getElementById('add-robot');
 let errorMessage = document.getElementById('error');
-// TODO: if the unit is changed, ask if the unit config should be updated as well...
-// TODO: when sensors are added to a unit, automatically add sensor as a measurement...
-// TODO: If a sensor is deleted add to a deleted DB and then remove after a confirmation
-// TODO: Wait for confirmation from the server after processing a request
-// TODO: Sanitize data both on the server side and the client side, to ensure the change dont corrupt something
+
 
 /*********************************************************************
  * MAIN PROGRAM
@@ -45,14 +39,11 @@ const socket = io('http://192.168.137.105:3000/webserver', {
     reconnectionDelayMax: 10000,
 });
 
-// Monitor the dropdown menu and change the selected sensor when it is changed
+// Monitor the dropdown menu and change the selected robot when it is changed
 robotOptions.addEventListener('change', changeRobot);
-// updateTimeRange.addEventListener('click', userSpecifiedTime);
 updateSetting.addEventListener('click', sendNewRobotSettings);
 addRobot.addEventListener('click', setNewRobotParameters)
-// sensorType.addEventListener('change', setTypeOptions)
-// sensorName.addEventListener('change', setSensorTypeOptions)
-// sensorFunction.addEventListener('change', checkForSetpoint)
+
 /*********************************************************************
  * EVENT LISTENERS
  *********************************************************************/
@@ -79,6 +70,9 @@ socket.on('allSensors', (sensors) => {
     getAllRobots();
 });
 
+/**
+ * When receiving all the robots, add them to the robot selector
+ */
 socket.on('allRobots', (robots) => {
     console.log('Received sensor names from server');
     let parsedRobots = JSON.parse(robots);
@@ -86,14 +80,22 @@ socket.on('allRobots', (robots) => {
     addOptionsToDropdown(robotOptions, parsedRobots, parsedRobots);
 });
 
+/**
+ * When receiving the configuration for a new robot,
+ * update the webpage with the new data.
+ */
 socket.on('robotInfo', (robotInfo, callback) => {
     let parsedRobotInfo = JSON.parse(robotInfo);
+    // Set the global variable for the robot config
     robotID = Object.keys(parsedRobotInfo)[0]
     console.log("Received sensor settings for robot " + robotID);
     robotSettings = parsedRobotInfo;
     if (callback) callback();
 });
 
+/**
+ * Give feedback to the user if the configuration was successful or not.
+ */
 socket.on('newRobotSettings', feedback => {
     if (feedback) {
         alert('Instillingene ble lagret!');
@@ -103,6 +105,11 @@ socket.on('newRobotSettings', feedback => {
         alert('Noe gikk galt! Instillingene ble ikke lagret!');
     }
 })
+
+
+/*********************************************************************
+ * PROGRAM FUNCTIONS
+ *********************************************************************/
 
 /**
  * Function to get all the sensor names from the server
@@ -120,7 +127,7 @@ function getAllRobots() {
 
 /**
  * Function to add multiple options to a dropdown selector.
- * All the opt
+ * All the options that is added is given as a parameter.
  * @param dropdown      The dropdown element
  * @param optionsToAdd  Array containing all the options to add
  * @param optionNames   The display text for the option
@@ -163,8 +170,6 @@ function changeRobot() {
     // Get the new sensor information. The callback is run when the sensor data is received
     socket.emit('robotInfo', newRobot, setRobotValues);
     // Empty last values in newest sensor values
-
-    // document.getElementById('sensor-page').style.display = 'inline-flex';
 }
 
 /**
@@ -175,6 +180,9 @@ function setRobotValues() {
     addSensors();
 }
 
+/**
+ * Function to remove all the previous element (i.e. the sensors for the last selected robot)
+ */
 function removePreviousLines() {
     sensorSelectors = [];
     // Remove all the previous sensors
@@ -184,45 +192,68 @@ function removePreviousLines() {
     }
 }
 
+/**
+ * Function to add new set the new sensor selectors
+ */
 function addSensors(){
+
     let sensorsConnected = robotSettings[robotID];
 
+    // Add an empty sensor, the user can then add a new sensor
     sensorsConnected.push(none);
     removePreviousLines();
 
+    // Add all the sensors to the webpage
     sensorsConnected.forEach((sensor) => {
         addSensorToLine(sensor);
     })
-
+    // Set a listener event on the last sensor
     setListenerForSensor();
 }
 
+/**
+ * Function for adding a listener event to the last sensor on the page
+ */
 function setListenerForSensor(){
+    // Find the index for the last sensor
     let lastSensor = sensorSelectors[sensorSelectors.length - 1];
     lastSelector = document.getElementById(lastSensor);
+    // add the listener event
     lastSelector.addEventListener('change', addNewSensor);
 }
 
+/**
+ * Function that adds a new sensor line
+ * if the last sensor place is used
+ */
 function addNewSensor(){
+    // Add new sensor selector
     if (lastSelector.value !== none){
         addSensorToLine(none);
         setListenerForSensor();
     }
 }
 
+/**
+ *  Function to retreve the last changes from the user and tries to send it.
+ *  If the configuration passes validation the user is asked to confirm before sending.
+ */
 function sendNewRobotSettings(){
     let sensorIDs = []
+    // Get all the sensors selected on the page
     sensorSelectors.forEach(sensor => {
         let sensorID = document.getElementById(sensor).value;
         if (!(sensorID === none)) {
             sensorIDs.push(sensorID);
         }
     })
+    // Check the robot configuration
     if (checkIDs(sensorIDs)){
         console.log(sensorIDs)
         let settingToSend = {}
         settingToSend[robotID] = sensorIDs;
         errorMessage.innerText = "";
+        // Send a confirmation question to the user
         if (confirm("Bekreft at du vil sende innstillingene!")) {
             socket.emit('newRobotSettings', JSON.stringify(settingToSend));
             console.log(settingToSend);
@@ -241,20 +272,30 @@ function sendNewRobotSettings(){
  * @return {boolean}
  */
 function checkIDs(sensors){
+    // Defined valid ID settings
     let regexForID = new RegExp('^[a-zA-Z0-9#]+$'); // Ids can only contain letters and numbers (and #)
+
+    // Status flags
     let sensorsNotOk = false;
     let robotIdOK = false;
+    // Check every sensor if the id is valid
     sensors.forEach(name => {
         if (!regexForID.test(name)) {
             sensorsNotOk = true;
         }
     });
+    // Check the robot id
     if (regexForID.test(robotID) && robotID !== undefined) {
         robotIdOK = true;
     }
+
     return (!sensorsNotOk) && robotIdOK;
 }
 
+/**
+ *
+ * @param sensor
+ */
 function addSensorToLine(sensor) {
     // The length of the array is the last index +1
     let lastSensor = sensorSelectors.length;
@@ -266,22 +307,33 @@ function addSensorToLine(sensor) {
     description.innerText = 'Sensor ' + (lastSensor + 1) + ':';
     description.setAttribute('class', 'info-text');
 
+    // Create a new sensor picker whit all the sensorIds as possible selections
     let select = document.createElement('select');
     let selectId = 'sensor' + lastSensor;
     sensorSelectors.push(selectId);
     addOptionsToDropdown(select, sensorIDs, sensorIDs);
     select.value = sensor;
+    // set the id of the selector
     select.setAttribute('id', selectId);
+    // set the class of the selector
     select.setAttribute('class', 'info-box');
+    // Add the description and the selector to the info line
     newSensorOption.appendChild(description);
     newSensorOption.appendChild(select);
+    // Append the new info line with the selector to the document
     sensorPicker.appendChild(newSensorOption);
 }
 
+/**
+ * Function to enable the robot field if the user is adding a new robot.
+ * And removes all the previous settings
+ */
 function setNewRobotParameters(){
+    // Remove all the sensor selectors
     removePreviousLines();
     robotName.disabled = false;
     robotName.addEventListener("change", function(){robotID = robotName.value});
+    // Add one sensor selector
     addSensorToLine(none);
     setListenerForSensor();
 }
