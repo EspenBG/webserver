@@ -12,11 +12,13 @@ const express = require('express')
 const app = express()
 const server = require('http').createServer(app);
 
+
 /*********************************************************************
 * MAIN PROGRAM
 *********************************************************************/
 // Set the directory the webclients can access, the clients can only request files from this directory
 app.use(express.static('/home/server/webserver/Website'));
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -26,3 +28,4 @@ app.get('/', (req, res) => {
 app.listen(8000, (server) => {
     console.log('Express app listening at http://localhost:8000');
 })
+
