@@ -46,7 +46,7 @@ let addSensor = document.getElementById('add-sensor')
  *********************************************************************/
 
 // Start a connection to the robot server, in the namespace webpage
-const socket = io('http://localhost:3000/webserver', {
+const socket = io('http://192.168.137.105:3000/webserver', {
     // Retry the connection every 10 seconds if it fails
     reconnectionDelayMax: 10000,
 });

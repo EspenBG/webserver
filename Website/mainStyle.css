@@ -1,3 +1,5 @@
+/*This is the stylesheet for the elements that is common on all the webpages*/
+
 h1 {
     display: inline-block;
     padding: 2px;
@@ -19,12 +21,14 @@ p {
     /*color: #012A4A;*/
 }
 body {
+    /*Remove padding and margin*/
     margin: 0;
     padding: 0;
     height: 100%;
     background: #A9D6E5;
 }
 nav {
+    /*Styling of the navigation menu*/
     display: flex;
     width: 100%;
     height: 56px;
@@ -37,6 +41,7 @@ nav {
     background: #01497C;
 }
 nav a {
+    /*Styling of the navigation links*/
     height: fit-content;
     text-decoration: none;
     padding: 15px 30px;
@@ -50,12 +55,6 @@ nav a {
 }
 
 main {
-    /*border: 1px solid red;*/
-    /*min-height: 100%;*/
-    /*max-height: 100%;*/
-    /*display: flex;*/
-    /* change flex-direction from column to row will work */
-    /*flex-direction: row;*/
     box-sizing:border-box;
     height: 100%;
     margin: 0;

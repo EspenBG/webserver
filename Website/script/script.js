@@ -49,7 +49,7 @@ let form = document.getElementById("log-length");
  *********************************************************************/
 
 // Start a connection to the robot server, in the namespace webpage
-const socket = io('http://localhost:3000/webserver', {
+const socket = io('http://192.168.137.105:3000/webserver', {
     // Retry the connection every 10 seconds if it fails
     reconnectionDelayMax: 10000,
 });
@@ -380,10 +380,10 @@ function userSpecifiedTime(){
         }
     }
 
-    console.log(regexDateFormat.test(fromDate))
-    console.log(regexTimeFormat.test(toTime))
-    console.log(toDate)
-    console.log(regexDateFormat.test(toDate))
+    // console.log(regexDateFormat.test(fromDate))
+    // console.log(regexTimeFormat.test(toTime))
+    // console.log(toDate)
+    // console.log(regexDateFormat.test(toDate))
 }
 
 function setStylesForPage() {

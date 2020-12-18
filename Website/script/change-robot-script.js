@@ -9,13 +9,7 @@
  *********************************************************************/
 
 let robotSettings = {};
-let dataLogSettings = {
-    after: 0,
-    before: 0
-};
 let robotID;
-let valueSuffix;
-let logTypeIsOther;
 let sensorSelectors = [];
 let lastSelector;
 
@@ -46,7 +40,7 @@ let errorMessage = document.getElementById('error');
  *********************************************************************/
 
 // Start a connection to the robot server, in the namespace webpage
-const socket = io('http://localhost:3000/webserver', {
+const socket = io('http://192.168.137.105:3000/webserver', {
     // Retry the connection every 10 seconds if it fails
     reconnectionDelayMax: 10000,
 });

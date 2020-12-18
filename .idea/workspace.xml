@@ -47,7 +47,21 @@
   <component name="ChangeListManager">
     <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="Config file for forever">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeRobot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeRobotStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobotStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeSensorStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensorStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/libraries/drag-drop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/mainStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/mainStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/forever-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/forever-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +105,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Website" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/server/server/webserver/src/forever-config.json" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Desktop/server/server/webserver/src/forever-config.json" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -124,8 +139,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.socket.js" />
+        <item itemvalue="Node.js.script.js" />
+        <item itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
   </component>
@@ -154,6 +170,11 @@
       <workItem from="1607431636049" duration="25379000" />
       <workItem from="1607503913015" duration="39239000" />
       <workItem from="1607604615588" duration="4058000" />
+      <workItem from="1607781812870" duration="1202000" />
+      <workItem from="1607853519190" duration="6106000" />
+      <workItem from="1607941592440" duration="4042000" />
+      <workItem from="1608234390890" duration="4585000" />
+      <workItem from="1608269002975" duration="2179000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -290,7 +311,13 @@
       <option name="presentableId" value="LOCAL−00022" />
       <updated>1607633831646</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL−00023" summary="Config file for forever">
+      <created>1607636617217</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1607636617217</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +334,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="bug/json-package" />
+                        <option value="wip/forever-test" />
                       </list>
                     </value>
                   </entry>

@@ -9,7 +9,28 @@ Describe the installation  process for the program.
  
 ## Usage
 [//]: # (TODO: Describe the usage of the program and different usecases)
-Describe how to use the webpage and if there is a setup process 
+Describe how to use the webpage and if there is a setup process
+
+Change ip in scripts
+change path in index.js
+
+
+### Generate a sensor ID
+There can be added a function for the user to add a new sensor configuration. There should not be the option to edit a sensor that has already implemented.
+The options for adding a new sensor are:
+
+- sensorID: This can also be generated automatically
+- unitID: Can be in a dropdown list, or typed manually
+- type: Dropdown with the option for temperature or CO2
+- monitor: when enabled the sensor is only for monitoring
+
+If monitor is false, the following options are available:
+
+- control type: reverse (i.e heating a room) or direct (i.e cooling a room)
+- output: true/false
+- setpoint: The setpoint for the controller
+
+
 
 ## Contributing
 [//]: # (TODO: Describe how to contribute to the program)

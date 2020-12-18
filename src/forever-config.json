@@ -7,10 +7,10 @@
     "sourceDir": "/home/server/webserver"
   },
   {
-    "uid": "raspberriPiServer",
+    "uid": "raspberry_pi_server",
     "append": true,
-    "watch": true,
+    "watch": false,
     "script": "src/index.js",
-    "sourceDir": "/home/server/raspberriPiServer"
+    "sourceDir": "/home/server/raspberry_pi_server"
   }
 ]
