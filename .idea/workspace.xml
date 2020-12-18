@@ -45,10 +45,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages">
+    <list default="true" id="349fc89c-9967-44bb-9b7d-7d5141b15219" name="Default Changelist" comment="Config file for forever">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeRobot.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeRobot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/changeSensor.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/changeSensor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-robot-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-robot-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/change-sensor-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/change-sensor-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/chartoperation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/chartoperation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/script/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +96,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Website" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/server/server/webserver/src/forever-config.json" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Desktop/server/server/webserver/src/forever-config.json" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -125,8 +130,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.index.js" />
         <item itemvalue="Node.js.socket.js" />
+        <item itemvalue="Node.js.script.js" />
+        <item itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +161,11 @@
       <workItem from="1607431636049" duration="25379000" />
       <workItem from="1607503913015" duration="39239000" />
       <workItem from="1607604615588" duration="4058000" />
+      <workItem from="1607781812870" duration="1202000" />
+      <workItem from="1607853519190" duration="6106000" />
+      <workItem from="1607941592440" duration="4042000" />
+      <workItem from="1608234390890" duration="4585000" />
+      <workItem from="1608269002975" duration="9134000" />
     </task>
     <task id="LOCAL−00001" summary="Fixed TODOs in README.md and added info on branches">
       <created>1603371334425</created>
@@ -285,13 +296,25 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1607590033615</updated>
     </task>
-    <task id="LOCAL−00022" summary="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages">
-      <created>1607629423434</created>
+    <task id="LOCAL−00022" summary="Config file for forever">
+      <created>1607633831646</created>
       <option name="number" value="LOCAL−00022" />
       <option name="presentableId" value="LOCAL−00022" />
-      <updated>1607629423434</updated>
+      <updated>1607633831646</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL−00023" summary="Config file for forever">
+      <created>1607636617217</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1607636617217</updated>
+    </task>
+    <task id="LOCAL−00024" summary="Refactoring of the website is finished.&#10;- The scripts has not been refactored yet.">
+      <created>1608271328918</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1608271328918</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +325,20 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="wip/forever-test" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+
           </value>
         </entry>
       </map>
@@ -329,7 +365,9 @@
     <MESSAGE value="Fixed som styling for the webpages, and cleaned up some unused files." />
     <MESSAGE value="It is now possible to add a new sensor" />
     <MESSAGE value="Colours and fonts are now uniform across all the webpages" />
-    <MESSAGE value="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted files that are not used, to solve a bug&#10;The web server can not give correct pages" />
+    <MESSAGE value="Config file for forever" />
+    <MESSAGE value="Refactoring of the website is finished.&#10;- The scripts has not been refactored yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring of the website is finished.&#10;- The scripts has not been refactored yet." />
+
   </component>
 </project>

@@ -1,3 +1,5 @@
+/*This is the stylesheet for the change robot page*/
+
 .choose-robot{
     display: flex;
     /*margin: 1px;*/
@@ -5,6 +7,7 @@
     background-color: #01497C;
 }
 .choose-robot p {
+    /*The text before robot picker*/
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
@@ -61,5 +64,6 @@
     font-size: large;
 }
 #error {
+    /*Any error messages should be displayed in red*/
     color: #E23636;
 }

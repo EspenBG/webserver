@@ -6,6 +6,7 @@
           content="device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
+    <!--There are two stylesheet used-->
     <link rel="stylesheet" href="mainStyle.css">
     <link rel="stylesheet" href="index.css">
     <script src="libraries/Chart.bundle.js"></script> <!--Load Chart.js library-->
@@ -14,6 +15,7 @@
 </head>
 <body>
 <h1> Kontroll plattform</h1>
+<!--Define the navigation menu-->
 <nav>
     <a href="./index.html">Hovedside</a>
     <a href="./changeRobot.html">Endre Robot</a>
@@ -22,14 +24,16 @@
 
 
 <main>
+    <!--Selector for changing the selected sensor-->
     <div class="choose-sensor">
         <p>Velg en sensor: </p>
         <select id="sensor-picker">
-            <option value="none">Sensor</option>
+            <option value="none" disabled selected>Sensor</option>
         </select>
     </div>
     <div class="main-content" id="sensor-page">
         <div class="main-page">
+            <!--This is were all the sensor information is displayed-->
             <div class="main-info">
                 <h2 id="sensor-name">SensorID: </h2>
                 <div class="info-line">
@@ -57,11 +61,11 @@
 
             </div>
             <div class="graph-window">
-
-
+                <!--Graph element used for showing historical data-->
                 <div class="graph">
                     <canvas id="myChart"></canvas>
                 </div>
+                <!--Define a form for selecting the range for the graph-->
                 <form class="log-type" id="log-length">
                     <!-- Form for selecting the log period, the value is log period in hours and 0 is reserved other -->
                     <p>Show data from:</p>
@@ -97,9 +101,10 @@
     </div>
 
 </main>
+<!--Script for the chart-->
 <script src="script/chartoperation.js"></script>
+<!--The main script with all the main functionality-->
 <script src="script/script.js"></script>
-<!--This allow yo to change how the graph works, how many graphs, colors, titles etc.-->
 
 </body>
 </html>

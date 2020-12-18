@@ -6,31 +6,32 @@
           content="device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
+    <!--There are two stylesheet used-->
     <link rel="stylesheet" href="mainStyle.css">
     <link rel="stylesheet" href="changeSensorStyle.css">
-    <script src="libraries/Chart.bundle.js"></script> <!--Load Chart.js library-->
-    <script src="libraries/socket.io.js"></script> <!--Load Chart.js library-->
-
-    <!--    <script src="script/script.js"></script>-->
+    <script src="libraries/socket.io.js"></script>
 </head>
 <body>
 <h1> Kontroll plattform</h1>
+<!--Define the navigation menu-->
 <nav>
     <a href="./index.html">Hovedside</a>
     <a href="./changeRobot.html">Endre Robot</a>
     <a href="./changeSensor.html">Endre Sensor</a>
 </nav>
 
-
 <main>
+    <!--Selector for changing the selected sensor-->
     <div class="choose-sensor">
         <p>Velg en sensor: </p>
         <select id="sensor-picker">
-            <option value="" disabled selected>Sensor</option>
+            <!--Is only used as a placeholder-->
+            <option value="" disabled>Sensor</option>
         </select>
         <input type="button" value="legg til" id="add-sensor">
     </div>
     <div class="main-content" id="sensor-page">
+        <!--Define all the lines for displaying the configuration-->
         <div class="main-info">
             <div class="sensor-title">
                 <p class="info-text">SensorID: </p>
@@ -63,6 +64,7 @@
             <div class="info-line">
             <button type="button" id="update-sensor-settings">Lagre nye innstillinger</button>
             </div>
+            <!--Element for displaying error codes-->
             <p id="error"></p>
         </div>
     </div>
